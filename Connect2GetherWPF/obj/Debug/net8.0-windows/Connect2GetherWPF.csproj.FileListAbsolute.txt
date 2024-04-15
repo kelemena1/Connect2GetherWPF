@@ -28,3 +28,7 @@ C:\Users\User\source\repos\Connect2GetherWPF\Connect2GetherWPF\bin\Debug\net8.0-
 C:\Users\User\source\repos\Connect2GetherWPF\Connect2GetherWPF\bin\Debug\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\User\source\repos\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\AdminHome.g.cs
 C:\Users\User\source\repos\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\AdminHome.baml
+C:\Users\User\source\repos\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\Connect2GetherWPF.sourcelink.json
+C:\Users\User\source\repos\Connect2GetherWPF\Connect2GetherWPF\bin\Debug\net8.0-windows\AssemblyInfo.cs
+C:\Users\User\source\repos\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\UserDataChangeWindow.g.cs
+C:\Users\User\source\repos\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\UserDataChangeWindow.baml

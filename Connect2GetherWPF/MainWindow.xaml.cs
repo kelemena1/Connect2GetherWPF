@@ -70,7 +70,7 @@ namespace Connect2GetherWPF
                 if (tokenObject.role == "Admin" || tokenObject.role == "Moderator")
                 {
                     
-                    AdminHome adminHome = new AdminHome(responseBody);
+                    AdminHome adminHome = new AdminHome(responseBody,_baseUrl);
                     adminHome.Show();
                     this.Close();
                 }

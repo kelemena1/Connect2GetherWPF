@@ -18,9 +18,10 @@ namespace Connect2GetherWPF.Models
         public int point { get; set; }
         public int permissionId { get; set; }
         public DateTime lastLogin { get; set; }
+        public string validatedKey { get; set; }
         public Permission? permission { get; set; }
 
-        public User(int id, string username, string hash, string email, bool activeUser, int rankId, DateTime registrationDate, int point, int permissionId, DateTime lastLogin, Permission permission)
+        public User(int id, string username, string hash, string email, bool activeUser, int rankId, DateTime registrationDate, int point, int permissionId, DateTime lastLogin, string validateKey, Permission permission)
         {
             this.id = id;
             this.username = username;
@@ -32,6 +33,7 @@ namespace Connect2GetherWPF.Models
             this.point = point;
             this.permissionId = permissionId;
             this.lastLogin = lastLogin;
+            this.validatedKey = validateKey;
             this.permission = permission;
         }
     }

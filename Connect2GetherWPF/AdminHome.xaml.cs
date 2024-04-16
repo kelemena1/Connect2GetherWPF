@@ -29,7 +29,7 @@ namespace Connect2GetherWPF
         public static List<SuspiciousUser> SusUserlist = new List<SuspiciousUser>();
         public static string jwToken = "";
         public static HttpClient client = new HttpClient();
-        const string _baseUrl = "https://localhost:7043/";
+        public static string _baseUrl = "";
         public static int countPost = 0;
         public static int countUser = 0;
 
@@ -99,8 +99,6 @@ namespace Connect2GetherWPF
                 dynamic responseBody = await response.Content.ReadAsStringAsync();
                 await Console.Out.WriteLineAsync(responseBody);
                 countUser = int.Parse(responseBody);
-
-
             }
             else
             {
@@ -120,11 +118,12 @@ namespace Connect2GetherWPF
             dg_Sus.ItemsSource = SusUserlist;
         }
 
-        public AdminHome(string Token)
+        public AdminHome(string Token, string url)
         {
            
             InitializeComponent();
             jwToken = Token;
+            _baseUrl = url;
             LoadAndDisplayUserData();
 
         }
@@ -141,7 +140,7 @@ namespace Connect2GetherWPF
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            UserDataChangeWindow w = new UserDataChangeWindow();
+            UserDataChangeWindow w = new UserDataChangeWindow(jwToken,_baseUrl);
             w.Show();
         }
     }

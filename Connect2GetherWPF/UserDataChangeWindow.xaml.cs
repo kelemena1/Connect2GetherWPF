@@ -90,7 +90,7 @@ namespace Connect2GetherWPF
                 }
                 else
                 {
-                    MessageBox.Show("Network Error!");
+                    MessageBox.Show("Network error!");
                 }
             }
             catch (Exception e)
@@ -146,6 +146,11 @@ namespace Connect2GetherWPF
         {
             Username_txtb.Text = (cmb_users.SelectedItem as User).username;
             email_txtb.Text = (cmb_users.SelectedItem as User).email;
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="UserDataChangeWindow" Height="450" Width="800">
     <Grid Background="#FF191919">
-        <ComboBox x:Name="cmb_users" DisplayMemberPath="username" SelectedValuePath="id" ItemsSource="{Binding Users}" HorizontalAlignment="Left" Margin="33,62,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmb_users_SelectionChanged"/>
+        <ComboBox x:Name="cmb_users" DisplayMemberPath="username" SelectedValuePath="id" ItemsSource="{Binding Users}" HorizontalAlignment="Left" Margin="88,57,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmb_users_SelectionChanged"/>
         <TextBox x:Name="Username_txtb" HorizontalAlignment="Left" Margin="471,103,0,0" TextWrapping="Wrap" Text="ExampleName" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="email_txtb" HorizontalAlignment="Left" Margin="471,130,0,0" TextWrapping="Wrap" Text="Example@example.ex" VerticalAlignment="Top" Width="161" TextChanged="email_txtb_TextChanged"/>
         <Button x:Name="SendData" Content="Küldés" HorizontalAlignment="Left" Margin="615,333,0,0" VerticalAlignment="Top" Foreground="White" Background="#5755FE" BorderBrush="#5755FE" Click="SendData_Click" Width="115" Height="54"/>
+        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="93,333,0,0" VerticalAlignment="Top" Foreground="White" Background="Red" BorderBrush="#5755FE" Click="Cancel_Click" Width="115" Height="54"/>
     </Grid>
 </Window>

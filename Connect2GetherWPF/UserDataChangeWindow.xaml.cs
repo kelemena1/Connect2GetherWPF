@@ -100,10 +100,12 @@ namespace Connect2GetherWPF
         }
         public async Task LoadAndDisplayUserData()
         {
+            
             await UserData();
-            cmb_users.Items.Clear();
             cmb_users.ItemsSource = userList;
             cmb_users.SelectedIndex = 0;
+            Username_txtb.Text = (cmb_users.Items[0] as User).username;
+            email_txtb.Text = (cmb_users.Items[0] as User).email;
         }
 
 
@@ -112,7 +114,7 @@ namespace Connect2GetherWPF
 
         }
 
-        private void SendData_Click(object sender, RoutedEventArgs e)
+        private async void SendData_Click(object sender, RoutedEventArgs e)
         {
             bool isValidEmail = false;
             
@@ -129,13 +131,21 @@ namespace Connect2GetherWPF
             {
                 int id = (cmb_users.SelectedItem as User).id;
                 Console.WriteLine(id);
-                ChangeUserData(id);
+                await ChangeUserData(id);
+                
+                this.Close();
                 }
             else {
                 MessageBox.Show("Wrong datas!");
             }
 
 
+        }
+
+        private void cmb_users_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Username_txtb.Text = (cmb_users.SelectedItem as User).username;
+            email_txtb.Text = (cmb_users.SelectedItem as User).email;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Connect2GetherWPF.Models
 {
-    internal class UserInComment
+    public class UserInComment
     {
         public string Username { get; set; }
         public Permission Permission { get; set; }

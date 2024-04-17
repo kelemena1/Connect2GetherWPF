@@ -33,6 +33,7 @@ namespace Connect2GetherWPF
         public static int countPost = 0;
         public static int countUser = 0;
         public static List<User> UserList = new List<User>();
+        public static List<Post> PostList = new List<Post>();
 
         public class UserData
         {
@@ -155,14 +156,17 @@ namespace Connect2GetherWPF
 
         public async Task LoadAndDisplayUserData()
         {
-            await SusUserLoader();
+            //await SusUserLoader();
+
             await PostCounter();
             await UserCounter();
             await fetchUsers();
+            await fetchPosts();
             Postcountlbl.Content =countPost.ToString();
             UserCountlbl.Content = countUser.ToString();
-            dg_Sus.ItemsSource = SusUserlist;
+           // dg_Post.ItemsSource = post;
             Displaydg.ItemsSource = UserList;
+            dg_Post.ItemsSource = PostList;
         }
 
         public AdminHome(string Token, string url)
@@ -233,7 +237,7 @@ namespace Connect2GetherWPF
         public async Task fetchPosts()
         {
 
-            string url = _baseUrl + "AdminUsers/AllUser";
+            string url = _baseUrl + "UserPost/AllUserPost";
 
             try
             {
@@ -245,8 +249,8 @@ namespace Connect2GetherWPF
                 {
                     dynamic responseBody = await response.Content.ReadAsStringAsync();
                     await Console.Out.WriteLineAsync(responseBody);
-                    List<User> users = JsonConvert.DeserializeObject<List<User>>(responseBody);
-                    UserList = users;
+                    List<Post> posts = JsonConvert.DeserializeObject<List<Post>>(responseBody);
+                    PostList = posts;
                 }
             }
             catch (Exception ex)
@@ -259,17 +263,8 @@ namespace Connect2GetherWPF
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //User
-            if(comboBox.SelectedIndex == 0) 
-            {
-                
-            
-            }else if(comboBox.SelectedIndex == 1) 
-            {
-                
-                
-            }
-
+        
+          
 
 
         }

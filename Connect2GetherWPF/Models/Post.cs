@@ -6,28 +6,41 @@ using System.Threading.Tasks;
 
 namespace Connect2GetherWPF.Models
 {
-    internal class Post
+    public class Post
     {
         public int Id { get; set; }
-        public int? ImageId { get; set; }
         public string Description { get; set; }
+        public DateTime UploadDate { get; set; }
         public string Title { get; set; }
         public int Like { get; set; }
-        public int UserId { get; set; }
-        public DateTime UploadDate { get; set; }
+        public UserInPost user { get; set; }
+ 
         public List<Comment> Comments { get; set; }
 
+        public int displayId { get; set; }
+        public string displayDescription { get; set; }
+        public string displayTitle { get; set; }
+        public string displayUsername { get; set; }
 
-        public Post(int id, int? imageId, string description, string title, int like, int userId, DateTime uploadDate, List<Comment> comments)
+        public DateTime displayUploadDate { get; set; }
+
+        public Post(int id, string description, DateTime uploadDate, string title, int like, UserInPost user, List<Comment> comments)
         {
             Id = id;
-            ImageId = imageId;
             Description = description;
+            UploadDate = uploadDate;
             Title = title;
             Like = like;
-            UserId = userId;
-            UploadDate = uploadDate;
+            this.user = user;
             Comments = comments;
+            displayId = id;
+            displayDescription = description;
+            displayTitle = title;
+            displayUsername = user.username;
+            displayUploadDate = uploadDate;
+
+
+
         }
     }
 }

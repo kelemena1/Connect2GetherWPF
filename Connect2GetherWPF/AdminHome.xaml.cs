@@ -26,7 +26,7 @@ namespace Connect2GetherWPF
     public partial class AdminHome : Window
     {
         //variables
-        public static List<SuspiciousUser> SusUserlist = new List<SuspiciousUser>();
+       
         public static string jwToken = "";
         public static HttpClient client = new HttpClient();
         public static string _baseUrl = "";
@@ -34,7 +34,7 @@ namespace Connect2GetherWPF
         public static int countUser = 0;
         public static List<User> UserList = new List<User>();
         public static List<Post> PostList = new List<Post>();
-
+        public static List<SuspiciousUser> SusUserlist = new List<SuspiciousUser>();
         public class UserData
         {
             public string DisplayPermissionName { get; set; }
@@ -191,8 +191,7 @@ namespace Connect2GetherWPF
 
         private void Change_data_btn_Click(object sender, RoutedEventArgs e)
         {
-            UserDataChangeWindow w = new UserDataChangeWindow(jwToken,_baseUrl);
-            w.Show();
+           
         }
 
         public async Task fetchUsers() 
@@ -272,6 +271,18 @@ namespace Connect2GetherWPF
         private void Displaydg_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SuspiciousUsersWindow w = new SuspiciousUsersWindow(_baseUrl,jwToken);
+            w.Show();
+        }
+
+        private void Change_data_Click(object sender, RoutedEventArgs e)
+        {
+            UserDataChangeWindow w = new UserDataChangeWindow(jwToken, _baseUrl);
+            w.Show();
         }
     }
 }

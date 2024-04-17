@@ -48,7 +48,7 @@ namespace Connect2GetherWPF
 
             HttpClient client = new();
             //tb_username.Text,tb_password.Password
-            Login user = new Login("kortez33","Asdasd123+");
+            Login user = new Login("bazsi","Valami123>");
             Console.WriteLine(user);
             Console.WriteLine(url);
             string JsonConvertedUser = JsonConvert.SerializeObject(user);

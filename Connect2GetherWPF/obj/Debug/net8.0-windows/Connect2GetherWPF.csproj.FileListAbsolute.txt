@@ -100,3 +100,5 @@ C:\Users\User\Desktop\Conect2Gether\Connect2GetherWPF\Connect2GetherWPF\obj\Debu
 C:\Users\User\Desktop\Conect2Gether\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\Connect2GetherWPF.pdb
 C:\Users\User\Desktop\Conect2Gether\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\Connect2GetherWPF.genruntimeconfig.cache
 C:\Users\User\Desktop\Conect2Gether\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\ref\Connect2GetherWPF.dll
+C:\Users\User\Desktop\Conect2Gether\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\SuspiciousUsersWindow.g.cs
+C:\Users\User\Desktop\Conect2Gether\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\SuspiciousUsersWindow.baml

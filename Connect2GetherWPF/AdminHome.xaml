@@ -8,7 +8,7 @@
         Title="AdminHome" Height="450" Width="910">
 
     <Grid Background="#FF191919">
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Displaydg" Margin="10,67,0,0" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="361" Width="416" HorizontalGridLinesBrush="#FF41B06E" VerticalGridLinesBrush="Transparent" Background="Transparent" Foreground="White" RowBackground="#4C41B06E" HeadersVisibility="Column" AlternatingRowBackground="#B241B06E" SelectionChanged="Displaydg_SelectionChanged">
+        <DataGrid x:Name="Displaydg" Margin="10,67,0,0" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="361" Width="416" HorizontalGridLinesBrush="#FF41B06E" VerticalGridLinesBrush="Transparent" Background="Transparent" Foreground="White" RowBackground="#4C41B06E" HeadersVisibility="Column" AlternatingRowBackground="#B241B06E" SelectionChanged="Displaydg_SelectionChanged" AutoGenerateColumns="False">
             <DataGrid.Resources>
                 <SolidColorBrush Color="Black" x:Key="columnForeground"/>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
@@ -18,27 +18,15 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-
-                <DataGridTemplateColumn Header="Nr " Width="38" CanUserSort="True" x:Name="SP001" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate >
-                            <Label x:Name="SP001F" 
-            Height="50" 
-            Content="{Binding GrLaufendePosition}"
-
-            Foreground="#FBF3D5" 
-            FontWeight="Bold"
-            Background="#00ffffff" 
-            HorizontalAlignment="Center" 
-            HorizontalContentAlignment="Center" 
-            VerticalContentAlignment="Center" 
-            BorderThickness="0" 
-            VerticalAlignment="Center"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Username" Binding="{Binding displayName}" Width="*" />
+                <DataGridTextColumn Header="Email" Binding="{Binding displayEmail}" Width="*" />
+                <DataGridTextColumn Header="Active User" Binding="{Binding displayActiveUser}" Width="*" />
+                <DataGridTextColumn Header="Last Login" Binding="{Binding displayLastLogin}" Width="*" />
+                <DataGridTextColumn Header="Validated" Binding="{Binding displayIsValidated}" Width="*" />
+                <DataGridTextColumn Header="Suspicious" Binding="{Binding suspicious}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
+
         <Label x:Name="Postcountlbl" Content="1234" HorizontalAlignment="Left" Margin="457,67,0,0" VerticalAlignment="Top" Background="#FFDD5746" Foreground="White" Height="68" Width="85" FontFamily="Bahnschrift SemiBold" FontSize="36"/>
         <Label  Content="Posts" HorizontalAlignment="Left" Margin="455,101,0,0" VerticalAlignment="Top" Foreground="White" Height="25" Width="37"/>
         <Label x:Name="UserCountlbl" Content="1234" HorizontalAlignment="Left" Margin="560,67,0,0" VerticalAlignment="Top" Background="#FFC94A" Foreground="Black" Height="68" FontFamily="Bahnschrift SemiBold" FontSize="36" Width="85"/>

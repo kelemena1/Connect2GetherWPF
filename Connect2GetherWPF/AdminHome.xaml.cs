@@ -216,6 +216,19 @@ namespace Connect2GetherWPF
                 throw new Exception($"An error occurred while fetching user data: {ex.Message}");
             }
 
+            foreach (var x in UserList)
+            {
+                foreach (var y in SusUserlist)
+                {
+                    if (x.id == y.userId)
+                    {
+                        x.suspicious = true;
+                    }
+                }
+            }
+
+
+
         }
         public async Task fetchPosts()
         {
@@ -258,6 +271,11 @@ namespace Connect2GetherWPF
             }
 
 
+
+        }
+
+        private void Displaydg_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }

@@ -17,6 +17,7 @@ namespace Connect2GetherWPF.Models
         public DateTime UploadDate { get; set; }
         public List<Comment> Comments { get; set; }
 
+
         public Post(int id, int? imageId, string description, string title, int like, int userId, DateTime uploadDate, List<Comment> comments)
         {
             Id = id;

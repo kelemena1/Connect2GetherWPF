@@ -26,7 +26,8 @@ namespace Connect2GetherWPF.Models
         public bool displayActiveUser { get; set; }
         public DateTime displayLastLogin { get; set; }
         public bool displayIsValidated { get; set; }
-        
+        public bool suspicious { get; set; }
+
         public User(int id, string username, string hash, string email, bool activeUser, int rankId, DateTime registrationDate, int point, int permissionId, DateTime lastLogin, string validateKey, Permission permission)
         {
             this.id = id;
@@ -52,6 +53,7 @@ namespace Connect2GetherWPF.Models
             {
                 displayIsValidated = true;
             }
+            this.suspicious = false;
            
         }
     }

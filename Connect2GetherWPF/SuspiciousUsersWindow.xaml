@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Connect2GetherWPF"
         mc:Ignorable="d"
         Title="SuspiciousUsersWindow" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="dg_susUsers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,423,91"/>
+    <Grid Background="#FF191919">
+        <DataGrid x:Name="dg_susUsers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,423,91" SelectionChanged="dg_susUsers_SelectionChanged"/>
         <Button x:Name="button" Content="Cancel" HorizontalAlignment="Left" Margin="43,380,0,0" VerticalAlignment="Top" Width="63" Click="button_Click"/>
         <Button x:Name="Delete_sus_mark" Content="Delete&#xD;&#xA;Suspicious&#xD;&#xA;Mark" HorizontalAlignment="Left" Margin="400,10,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="86" Height="65" Click="Delete_sus_mark_click"/>
         <Button x:Name="button2" Content="Delete&#xD;&#xA;Suspicious" HorizontalAlignment="Left" Margin="400,80,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="47" Width="86" Click="Delete_sus_user_click"/>

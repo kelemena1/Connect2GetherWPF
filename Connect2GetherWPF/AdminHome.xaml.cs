@@ -165,7 +165,7 @@ namespace Connect2GetherWPF
             Postcountlbl.Content =countPost.ToString();
             UserCountlbl.Content = countUser.ToString();
            // dg_Post.ItemsSource = post;
-            Displaydg.ItemsSource = UserList;
+            dg_users.ItemsSource = UserList;
             dg_Post.ItemsSource = PostList;
         }
 
@@ -229,9 +229,6 @@ namespace Connect2GetherWPF
                     }
                 }
             }
-
-
-
         }
         public async Task fetchPosts()
         {
@@ -283,6 +280,56 @@ namespace Connect2GetherWPF
         {
             UserDataChangeWindow w = new UserDataChangeWindow(jwToken, _baseUrl);
             w.Show();
+        }
+
+        private async void MarkSus_btn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (dg_users.SelectedItem != null)
+                {
+                    MessageBoxResult result = MessageBox.Show("Are you sure you want to mark the user?", "Confirmation", MessageBoxButton.YesNo);
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        int id = (dg_users.SelectedItem as User).id;
+                        if (client.DefaultRequestHeaders.Authorization != null)
+                        {
+
+                            client.DefaultRequestHeaders.Remove("Authorization");
+                        }
+
+                        client.DefaultRequestHeaders.Add("Authorization", $"Bearer {jwToken}");
+
+                        string url = $"{_baseUrl}/Moderator/AddSuspicious?id={id}";
+
+
+                        HttpResponseMessage response = await client.PostAsync(url,id);
+                        await Console.Out.WriteLineAsync(response.StatusCode.ToString());
+                        if (response.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show("Sucessfully marked the user as suspicious!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to mark the user. Please check your connection!");
+                            MessageBox.Show(response.StatusCode.ToString());
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select the user to mark it!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadAndDisplayUserData();
+            }
         }
     }
 }

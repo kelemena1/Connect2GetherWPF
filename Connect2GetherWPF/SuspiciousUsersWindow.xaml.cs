@@ -37,7 +37,7 @@ namespace Connect2GetherWPF
 
             
             await fetchSusUsers();
-            dg_susUsers.ItemsSource = SusUserlist;
+           dg_susUsers.ItemsSource = SusUserlist;
             
         }
         public SuspiciousUsersWindow(string url, string token)
@@ -55,7 +55,7 @@ namespace Connect2GetherWPF
         }
         public async Task fetchSusUsers()
         {
-            string url = _baseUrl + "AdminSuspiciousUsers/AllSuspiciousUser";
+            string url = _baseUrl + "Moderator/AllSuspiciousUser";
 
             try
             {
@@ -68,19 +68,16 @@ namespace Connect2GetherWPF
                     dynamic responseBody = await response.Content.ReadAsStringAsync();
                     await Console.Out.WriteLineAsync(responseBody);
                     List<SuspiciousUser> users = JsonConvert.DeserializeObject<List<SuspiciousUser>>(responseBody);
-
                     SusUserlist = users;
-
-
+                    dg_susUsers.ItemsSource = SusUserlist; // Set the ItemsSource here
                 }
             }
             catch (Exception ex)
             {
-
                 throw new Exception($"An error occurred while fetching user data: {ex.Message}");
             }
-
         }
+
 
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -88,6 +85,8 @@ namespace Connect2GetherWPF
             this.Close();
         }
 
+
+        //Sus User Delete permamently
         private async void Delete_sus_mark_click(object sender, RoutedEventArgs e)
         {
             try
@@ -107,34 +106,83 @@ namespace Connect2GetherWPF
 
                         client.DefaultRequestHeaders.Add("Authorization", $"Bearer {jwToken}");
 
-                        string url = $"{_baseUrl}AdminSuspiciousUsers/DeleteSuspiciousById?id={id}";
+                        string url = $"{_baseUrl}Moderator/DeleteSuspiciousById?id={id}";
 
 
                         HttpResponseMessage response = await client.DeleteAsync(url);
                         await Console.Out.WriteLineAsync(response.StatusCode.ToString());
                         if (response.IsSuccessStatusCode)
                         {
-                            MessageBox.Show("Successfully removed the suspicious mark!");
+                            MessageBox.Show("Sucessfully deleted the suspicious user!");
                         }
                         else
                         {
-                            MessageBox.Show("Failed to remove the suspicious mark. Please try again later.");
+                            MessageBox.Show("Failed to delete the user. Please check your connection!");
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please select a suspicious user to remove the mark from.");
+                    MessageBox.Show("Please select a suspicious user to delete it!");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            finally {
+                LoadAndDisplayUserData(); 
+            }
         }
 
+        //Remove the suspicious mark
+        private async void Delete_sus_user_click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (dg_susUsers.SelectedItem != null)
+                {
+                    MessageBoxResult result = MessageBox.Show("Are you sure you want to remove the suspicious user?", "Confirmation", MessageBoxButton.YesNo);
 
-        private void Delete_sus_user_click(object sender, RoutedEventArgs e)
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        int id = (dg_susUsers.SelectedItem as SuspiciousUser).userId;
+                        if (client.DefaultRequestHeaders.Authorization != null)
+                        {
+
+                            client.DefaultRequestHeaders.Remove("Authorization");
+                        }
+
+                        client.DefaultRequestHeaders.Add("Authorization", $"Bearer {jwToken}");
+
+                        string url = $"{_baseUrl}AdminUsers/DeleteUserById?id={id}";
+
+
+                        HttpResponseMessage response = await client.DeleteAsync(url);
+                        await Console.Out.WriteLineAsync(response.StatusCode.ToString());
+                        if (response.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show("Successfully deleted the suspicious user!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to delete the user. Please check your connection!");
+                        }
+                    }
+
+
+                }
+
+
+                
+            }
+            catch {
+                MessageBox.Show("Failed to delete the user. Please check your connection!");
+            }
+
+        }
+
+        private void dg_susUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

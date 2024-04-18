@@ -92,22 +92,26 @@ namespace Connect2GetherWPF
         {
             try
             {
-
                 if (dg_susUsers.SelectedItem != null)
                 {
-
                     MessageBoxResult result = MessageBox.Show("Are you sure you want to remove the suspicious mark?", "Confirmation", MessageBoxButton.YesNo);
-
 
                     if (result == MessageBoxResult.Yes)
                     {
-                        int id = (dg_susUsers.SelectedItem as SuspiciousUser).userId;
-                        client.DefaultRequestHeaders.Add("Authorization", "Bearer " + jwToken);
+                        int id = (dg_susUsers.SelectedItem as SuspiciousUser).id;
+                        if (client.DefaultRequestHeaders.Authorization != null)
+                        {
+                            
+                            client.DefaultRequestHeaders.Remove("Authorization");
+                        }
 
-                        string url = $"https://85.66.167.2:7043/AdminSuspiciousUsers/DeleteSuspiciousById?id={id}";
+                        client.DefaultRequestHeaders.Add("Authorization", $"Bearer {jwToken}");
+
+                        string url = $"{_baseUrl}AdminSuspiciousUsers/DeleteSuspiciousById?id={id}";
+
 
                         HttpResponseMessage response = await client.DeleteAsync(url);
-
+                        await Console.Out.WriteLineAsync(response.StatusCode.ToString());
                         if (response.IsSuccessStatusCode)
                         {
                             MessageBox.Show("Successfully removed the suspicious mark!");
@@ -125,10 +129,10 @@ namespace Connect2GetherWPF
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong!");
+                MessageBox.Show(ex.Message);
             }
-
         }
+
 
         private void Delete_sus_user_click(object sender, RoutedEventArgs e)
         {

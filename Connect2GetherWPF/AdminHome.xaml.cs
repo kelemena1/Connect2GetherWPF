@@ -117,47 +117,13 @@ namespace Connect2GetherWPF
 
         }
 
-        public async Task UserDataDisplay()
-        {
-
-            
-
-            // Create a new list with only display properties
-            List<UserData> userDataList = UserList.Select(user => new UserData
-            {
-                DisplayPermissionName = user.displayPermissionName,
-                DisplayName = user.displayName,
-                DisplayEmail = user.displayEmail,
-                DisplayActiveUser = user.displayActiveUser,
-                DisplayLastLogin = user.displayLastLogin,
-                DisplayIsValidated = user.displayIsValidated
-            }).ToList();
-
-            // Create DataGrid
-            DataGrid dataGrid = new DataGrid();
-
-            // Create and add columns dynamically
-            foreach (var propertyInfo in typeof(UserData).GetProperties())
-            {
-                DataGridTextColumn column = new DataGridTextColumn();
-                column.Header = propertyInfo.Name; // Column header is the property name
-                column.Binding = new System.Windows.Data.Binding(propertyInfo.Name);
-                dataGrid.Columns.Add(column);
-            }
-
-            // Set data source
-            dataGrid.ItemsSource = userDataList;
-
-            // Add DataGrid to your container
-           // YourContainer.Children.Add(dataGrid);
-        }
-    
+        
 
 
         public async Task LoadAndDisplayUserData()
         {
             //await SusUserLoader();
-
+            await SusUserLoader();
             await PostCounter();
             await UserCounter();
             await fetchUsers();
@@ -274,6 +240,7 @@ namespace Connect2GetherWPF
         {
             SuspiciousUsersWindow w = new SuspiciousUsersWindow(_baseUrl,jwToken);
             w.Show();
+           
         }
 
         private void Change_data_Click(object sender, RoutedEventArgs e)
@@ -301,10 +268,10 @@ namespace Connect2GetherWPF
 
                         client.DefaultRequestHeaders.Add("Authorization", $"Bearer {jwToken}");
 
-                        string url = $"{_baseUrl}/Moderator/AddSuspicious?id={id}";
+                        string url = $"{_baseUrl}Moderator/AddSuspicious?id={id}";
 
 
-                        HttpResponseMessage response = await client.PostAsync(url,id);
+                        HttpResponseMessage response = await client.PostAsync(url,null);
                         await Console.Out.WriteLineAsync(response.StatusCode.ToString());
                         if (response.IsSuccessStatusCode)
                         {

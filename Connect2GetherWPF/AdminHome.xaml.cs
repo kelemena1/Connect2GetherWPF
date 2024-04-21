@@ -298,5 +298,20 @@ namespace Connect2GetherWPF
                 LoadAndDisplayUserData();
             }
         }
+
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+                
+            Post selectedPost =  dg_Post.SelectedItem as Post;
+            if (selectedPost != null)
+            {
+                CommentManagerWindow w = new CommentManagerWindow(selectedPost);
+                w.Show();
+            }
+            else {
+
+                MessageBox.Show("Please select a Post!");
+            }
+        }
     }
 }

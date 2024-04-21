@@ -1,0 +1,14 @@
+﻿<Window x:Class="Connect2GetherWPF.CommentManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Connect2GetherWPF"
+        mc:Ignorable="d"
+        Title="CommentManagerWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="comments_dg" Height="350" Width="350" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,10,440,74" SelectionChanged="dataGrid_SelectionChanged"/>
+        <Button x:Name="Close_btn" Content="Close" HorizontalAlignment="Left" Margin="23,389,0,0" VerticalAlignment="Top" Width="42"/>
+
+    </Grid>
+</Window>

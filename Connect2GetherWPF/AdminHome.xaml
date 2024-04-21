@@ -69,5 +69,6 @@
         <Button x:Name="Delete_btn" Content="Delete selected&#xD;&#xA; user" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Margin="457,140,0,0" Click="Change_data_btn_Click" Height="47"/>
         <Button x:Name="Change_data" Content="Manage user data" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Height="24" Width="118" Click="Change_data_Click"/>
         <Button x:Name="MarkSus_btn" Content="Mark as &#xD;&#xA;suspicious" HorizontalAlignment="Left" Margin="457,197,0,0" VerticalAlignment="Top" Width="85" Height="49" Click="MarkSus_btn_Click"/>
+        <Button x:Name="button" Content="Selected post&#xD;&#xA;Load &#xD;&#xA;Comments" HorizontalAlignment="Left" Margin="554,140,0,0" VerticalAlignment="Top" Width="95" Height="60" Click="button_Click_1"/>
     </Grid>
 </Window>

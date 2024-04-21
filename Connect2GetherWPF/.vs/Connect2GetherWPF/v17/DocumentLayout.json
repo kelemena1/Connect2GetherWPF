@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|c:\\users\\user\\desktop\\conect2gether\\connect2getherwpf\\connect2getherwpf\\adminhome.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|solutionrelative:adminhome.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|c:\\users\\user\\desktop\\conect2gether\\connect2getherwpf\\connect2getherwpf\\commentmanagerwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|solutionrelative:commentmanagerwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|c:\\users\\user\\desktop\\conect2gether\\connect2getherwpf\\connect2getherwpf\\models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|solutionrelative:models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|c:\\users\\user\\desktop\\conect2gether\\connect2getherwpf\\connect2getherwpf\\commentmanagerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|solutionrelative:commentmanagerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|c:\\users\\user\\desktop\\conect2gether\\connect2getherwpf\\connect2getherwpf\\adminhome.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|solutionrelative:adminhome.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|c:\\users\\user\\desktop\\conect2gether\\connect2getherwpf\\connect2getherwpf\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|c:\\users\\user\\desktop\\conect2gether\\connect2getherwpf\\connect2getherwpf\\suspicioususerswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -13,14 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|c:\\users\\user\\desktop\\conect2gether\\connect2getherwpf\\connect2getherwpf\\suspicioususerswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|solutionrelative:suspicioususerswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|c:\\users\\user\\desktop\\conect2gether\\connect2getherwpf\\connect2getherwpf\\adminhome.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|solutionrelative:adminhome.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|c:\\users\\user\\desktop\\conect2gether\\connect2getherwpf\\connect2getherwpf\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{910B1550-EC4C-494D-939B-B973E121C661}|Connect2GetherWPF.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,24 +42,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
+              "Title": "CommentManagerWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\CommentManagerWindow.xaml.cs",
+              "RelativeDocumentMoniker": "CommentManagerWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\CommentManagerWindow.xaml.cs",
+              "RelativeToolTip": "CommentManagerWindow.xaml.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAADwvxsAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-21T13:05:00.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Post.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\Models\\Post.cs",
+              "RelativeDocumentMoniker": "Models\\Post.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\Models\\Post.cs",
+              "RelativeToolTip": "Models\\Post.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAiwC8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-21T13:02:01.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CommentManagerWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\CommentManagerWindow.xaml",
+              "RelativeDocumentMoniker": "CommentManagerWindow.xaml",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\CommentManagerWindow.xaml",
+              "RelativeToolTip": "CommentManagerWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-21T12:40:32.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\Models\\User.cs",
               "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAiwDkAAAAkAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADkAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-21T12:02:25.266Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "AdminHome.xaml",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\AdminHome.xaml",
               "RelativeDocumentMoniker": "AdminHome.xaml",
@@ -59,32 +109,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "AdminHome.xaml.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\AdminHome.xaml.cs",
               "RelativeDocumentMoniker": "AdminHome.xaml.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\AdminHome.xaml.cs",
               "RelativeToolTip": "AdminHome.xaml.cs",
-              "ViewState": "AQIAAOMAAAAAAAAAAAAkwBgBAAAZAAAA",
+              "ViewState": "AQIAABYBAAAAAAAAAAAiwDYBAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-18T15:58:28.418Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "SuspiciousUsersWindow.xaml",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\SuspiciousUsersWindow.xaml",
               "RelativeDocumentMoniker": "SuspiciousUsersWindow.xaml",
               "ToolTip": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\SuspiciousUsersWindow.xaml",
               "RelativeToolTip": "SuspiciousUsersWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-18T15:50:01.783Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-18T15:50:01.783Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "SuspiciousUsersWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Conect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\SuspiciousUsersWindow.xaml.cs",
               "RelativeDocumentMoniker": "SuspiciousUsersWindow.xaml.cs",
@@ -92,8 +141,7 @@
               "RelativeToolTip": "SuspiciousUsersWindow.xaml.cs",
               "ViewState": "AQIAAIgAAAAAAAAAAAAcwC8AAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-18T15:51:51.483Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-18T15:51:51.483Z"
             }
           ]
         },

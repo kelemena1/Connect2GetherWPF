@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\User\Desktop\Conect2Gether\Connect2GetherWPF\Connect2GetherWPF\App.xaml
-4-1290772218
+5-1415823189
 
-19-1005985196
+201610004817
 204571489116
-AdminHome.xaml;MainWindow.xaml;SuspiciousUsersWindow.xaml;UserDataChangeWindow.xaml;
+AdminHome.xaml;CommentManagerWindow.xaml;MainWindow.xaml;SuspiciousUsersWindow.xaml;UserDataChangeWindow.xaml;
 
 True
 

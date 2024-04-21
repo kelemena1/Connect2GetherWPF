@@ -42,5 +42,9 @@ namespace Connect2GetherWPF.Models
 
 
         }
+
+        public Post()
+        {
+        }
     }
 }

@@ -106,3 +106,5 @@ C:\Users\kádám\Desktop\Connect2Gether\Connect2GetherWPF\Connect2GetherWPF\obj\
 C:\Users\kádám\Desktop\Connect2Gether\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\SuspiciousUsersWindow.baml
 C:\Users\User\Desktop\Conect2Gether\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\CommentManagerWindow.g.cs
 C:\Users\User\Desktop\Conect2Gether\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\CommentManagerWindow.baml
+C:\Users\kádám\Desktop\Connect2Gether\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\CommentManagerWindow.g.cs
+C:\Users\kádám\Desktop\Connect2Gether\Connect2GetherWPF\Connect2GetherWPF\obj\Debug\net8.0-windows\CommentManagerWindow.baml

@@ -9,6 +9,8 @@
     <Grid>
         <DataGrid x:Name="comments_dg" Height="350" Width="350" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,10,440,74" SelectionChanged="dataGrid_SelectionChanged"/>
         <Button x:Name="Close_btn" Content="Close" HorizontalAlignment="Left" Margin="23,389,0,0" VerticalAlignment="Top" Width="42"/>
+        <Button x:Name="SuspiciousUserDelete" Content="Suspicious&#xD;&#xA;User&#xD;&#xA;ByComment" HorizontalAlignment="Left" Margin="400,13,0,0" VerticalAlignment="Top" Height="69" Width="82" Click="SuspiciousUserByComment_click"/>
+        <Button x:Name="DeleteComments" Content="Delete comment" HorizontalAlignment="Left" Margin="400,87,0,0" VerticalAlignment="Top" Click="DeleteComments_Click"/>
 
     </Grid>
 </Window>

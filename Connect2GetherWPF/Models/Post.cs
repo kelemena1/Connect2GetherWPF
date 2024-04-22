@@ -14,33 +14,19 @@ namespace Connect2GetherWPF.Models
         public string Title { get; set; }
         public int Like { get; set; }
         public UserInPost user { get; set; }
- 
         public List<Comment> Comments { get; set; }
-
-        public int displayId { get; set; }
-        public string displayDescription { get; set; }
-        public string displayTitle { get; set; }
         public string displayUsername { get; set; }
 
-        public DateTime displayUploadDate { get; set; }
-
-        public Post(int id, string description, DateTime uploadDate, string title, int like, UserInPost user, List<Comment> comments)
+        public Post(int id, string description, DateTime uploadDate, string title, int like, UserInPost userinpost, List<Comment> comments)
         {
             Id = id;
             Description = description;
             UploadDate = uploadDate;
             Title = title;
             Like = like;
-            this.user = user;
+            this.user = userinpost;
             Comments = comments;
-            displayId = id;
-            displayDescription = description;
-            displayTitle = title;
-            displayUsername = user.username;
-            displayUploadDate = uploadDate;
-
-
-
+            this.displayUsername = userinpost.username;
         }
 
         public Post()

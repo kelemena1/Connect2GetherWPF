@@ -40,9 +40,9 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding displayId}" />
-                <DataGridTextColumn Header="Description" Binding="{Binding displayDescription}" />
-                <DataGridTextColumn Header="Title" Binding="{Binding displayTitle}" />
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
                 <DataGridTextColumn Header="Username" Binding="{Binding displayUsername}" />
                 <DataGridTemplateColumn Header="" Width="38" CanUserSort="True" x:Name="SP1" >
                     <DataGridTemplateColumn.CellTemplate>

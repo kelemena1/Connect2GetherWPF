@@ -305,7 +305,7 @@ namespace Connect2GetherWPF
             Post selectedPost =  dg_Post.SelectedItem as Post;
             if (selectedPost != null)
             {
-                CommentManagerWindow w = new CommentManagerWindow(selectedPost);
+                CommentManagerWindow w = new CommentManagerWindow(selectedPost,jwToken,_baseUrl);
                 w.Show();
             }
             else {

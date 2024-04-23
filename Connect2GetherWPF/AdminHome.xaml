@@ -64,7 +64,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Background="#FF191919" BorderBrush="#FF41B06E" Foreground="#41B06E" SelectionBrush="#FF00FF9C" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="searchbar_txtb" HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Background="#FF191919" BorderBrush="#FF41B06E" Foreground="#41B06E" SelectionBrush="#FF00FF9C" TextChanged="TextBox_TextChanged"/>
         <Button Content="Suspicious" HorizontalAlignment="Left" Margin="133,6,0,0" VerticalAlignment="Top" Width="85" Height="24"  Foreground="White" Background="#5755FE" BorderBrush="#5755FE" Click="Button_Click"/>
         <Button x:Name="Delete_btn" Content="Delete selected&#xD;&#xA; user" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Margin="457,140,0,0" Click="Change_data_btn_Click" Height="47"/>
         <Button x:Name="Change_data" Content="Manage user data" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Height="24" Width="118" Click="Change_data_Click"/>

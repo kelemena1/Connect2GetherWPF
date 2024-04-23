@@ -117,7 +117,16 @@ namespace Connect2GetherWPF
 
         }
 
-        
+        public class UserSearch
+        {
+            public List<User> SearchUsers(List<User> users, string query)
+            {
+                return users.Where(user =>
+                       (user.username != null && user.username.Contains(query, StringComparison.OrdinalIgnoreCase)) ||
+                       (user.email != null && user.email.Contains(query, StringComparison.OrdinalIgnoreCase))
+                   ).ToList();
+            }
+        }
 
 
         public async Task LoadAndDisplayUserData()
@@ -147,6 +156,17 @@ namespace Connect2GetherWPF
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (UserList == null) return;
+
+            string searchText = searchbar_txtb.Text.ToLower();
+            var filteredUsers = UserList.Where(user =>
+                (user.username != null && user.username.ToLower().Contains(searchText)) ||
+                (user.email != null && user.email.ToLower().Contains(searchText)) ||
+                (user.displayName != null && user.displayName.ToLower().Contains(searchText))
+            ).ToList();
+
+            dg_users.ItemsSource = filteredUsers;
+
 
         }
 

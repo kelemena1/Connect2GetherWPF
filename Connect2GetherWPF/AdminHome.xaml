@@ -27,10 +27,10 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label x:Name="Postcountlbl" Content="1234" HorizontalAlignment="Left" Margin="457,67,0,0" VerticalAlignment="Top" Background="#FFDD5746" Foreground="White" Height="68" Width="85" FontFamily="Bahnschrift SemiBold" FontSize="36"/>
-        <Label  Content="Posts" HorizontalAlignment="Left" Margin="455,101,0,0" VerticalAlignment="Top" Foreground="White" Height="25" Width="37"/>
-        <Label x:Name="UserCountlbl" Content="1234" HorizontalAlignment="Left" Margin="560,67,0,0" VerticalAlignment="Top" Background="#FFC94A" Foreground="Black" Height="68" FontFamily="Bahnschrift SemiBold" FontSize="36" Width="85"/>
-        <Label Content="Users" HorizontalAlignment="Left" Margin="560,101,0,0" VerticalAlignment="Top" Foreground="Black" Height="25" Width="38"/>
+        <Label x:Name="Postcountlbl" Content="1234" HorizontalAlignment="Left" Margin="559,64,0,0" VerticalAlignment="Top" Background="#FFDD5746" Foreground="White" Height="68" Width="85" FontFamily="Bahnschrift SemiBold" FontSize="36"/>
+        <Label  Content="Posts" HorizontalAlignment="Left" Margin="564,101,0,0" VerticalAlignment="Top" Foreground="White" Height="25" Width="37"/>
+        <Label x:Name="UserCountlbl" Content="1234" HorizontalAlignment="Left" Margin="455,67,0,0" VerticalAlignment="Top" Background="#FFC94A" Foreground="Black" Height="68" FontFamily="Bahnschrift SemiBold" FontSize="36" Width="85"/>
+        <Label Content="Users" HorizontalAlignment="Left" Margin="455,102,0,0" VerticalAlignment="Top" Foreground="Black" Height="24" Width="38"/>
         <DataGrid x:Name="dg_Post" AutoGenerateColumns="false" Margin="675,65,0,8" BorderBrush="{x:Null}" HorizontalGridLinesBrush="#FF41B06E" VerticalGridLinesBrush="Transparent" Background="Transparent" Foreground="White" RowBackground="#4C41B06E" HeadersVisibility="Column" AlternatingRowBackground="#B241B06E"  Height="361" Width="416" SelectionChanged="DataGrid_SelectionChanged" HorizontalAlignment="Left">
             <DataGrid.Resources>
                 <SolidColorBrush Color="Black" x:Key="columnForeground"/>
@@ -66,9 +66,9 @@
         </DataGrid>
         <TextBox x:Name="searchbar_txtb" HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Background="#FF191919" BorderBrush="#FF41B06E" Foreground="#41B06E" SelectionBrush="#FF00FF9C" TextChanged="TextBox_TextChanged"/>
         <Button Content="Suspicious" HorizontalAlignment="Left" Margin="133,6,0,0" VerticalAlignment="Top" Width="85" Height="24"  Foreground="White" Background="#5755FE" BorderBrush="#5755FE" Click="Button_Click"/>
-        <Button x:Name="Delete_btn" Content="Delete selected&#xD;&#xA; user" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Margin="457,140,0,0" Click="Change_data_btn_Click" Height="47"/>
-        <Button x:Name="Change_data" Content="Manage user data" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Height="24" Width="118" Click="Change_data_Click"/>
-        <Button x:Name="MarkSus_btn" Content="Mark as &#xD;&#xA;suspicious" HorizontalAlignment="Left" Margin="457,197,0,0" VerticalAlignment="Top" Width="85" Height="49" Click="MarkSus_btn_Click"/>
-        <Button x:Name="button" Content="Selected post&#xD;&#xA;Load &#xD;&#xA;Comments" HorizontalAlignment="Left" Margin="554,140,0,0" VerticalAlignment="Top" Width="95" Height="60" Click="button_Click_1"/>
+        <Button x:Name="Delete_btn" Content="Delete selected&#xD;&#xA; user" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Margin="457,140,0,0" Click="Change_data_btn_Click" Height="61"/>
+        <Button x:Name="Change_data" Content="Manage user data" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Height="24" Width="118" Foreground="White" Background="#5755FE" BorderBrush="#5755FE" Click="Change_data_Click"/>
+        <Button x:Name="MarkSus_btn" Content="Mark as &#xD;&#xA;suspicious" HorizontalAlignment="Left" Margin="457,217,0,0" VerticalAlignment="Top" Width="85" Height="49" Click="MarkSus_btn_Click"/>
+        <Button x:Name="button" Content="Selected post&#xD;&#xA;Load &#xD;&#xA;Comments" HorizontalAlignment="Left" Margin="559,140,0,0" VerticalAlignment="Top" Width="85" Height="61" Foreground="White" Background="#FFDD5746" BorderBrush="#FFC94A" Click="button_Click_1"/>
     </Grid>
 </Window>

@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "fo2uQCP5NoFPqoeixVfmFeEzWTG9HFvDeLbNBjXJ00dZS8FHXk6xHyDMLoM5Gic/7wc3hSH2U77V9NE/0A2F/Q==",
+  "dgSpecHash": "RvvhY/ZPDHbgSz6JbQA5BCclHwAx3dx+eis68tgz8h9VUGftln3uaOC59vDj17c4b4hRHukyt418iyfwzkwH/A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kádám\\Desktop\\Connect2Gether\\Connect2GetherWPF\\Connect2GetherWPF\\Connect2GetherWPF.csproj",
+  "projectFilePath": "C:\\Users\\lbálint\\Desktop\\projekt\\Connect2GetherWPF\\Connect2GetherWPF\\Connect2GetherWPF.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\kádám\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.5.1\\microsoft.identitymodel.abstractions.7.5.1.nupkg.sha512",
-    "C:\\Users\\kádám\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.5.1\\microsoft.identitymodel.jsonwebtokens.7.5.1.nupkg.sha512",
-    "C:\\Users\\kádám\\.nuget\\packages\\microsoft.identitymodel.logging\\7.5.1\\microsoft.identitymodel.logging.7.5.1.nupkg.sha512",
-    "C:\\Users\\kádám\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.5.1\\microsoft.identitymodel.tokens.7.5.1.nupkg.sha512",
-    "C:\\Users\\kádám\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\kádám\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.5.1\\system.identitymodel.tokens.jwt.7.5.1.nupkg.sha512"
+    "C:\\Users\\lbálint\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.5.1\\microsoft.identitymodel.abstractions.7.5.1.nupkg.sha512",
+    "C:\\Users\\lbálint\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.5.1\\microsoft.identitymodel.jsonwebtokens.7.5.1.nupkg.sha512",
+    "C:\\Users\\lbálint\\.nuget\\packages\\microsoft.identitymodel.logging\\7.5.1\\microsoft.identitymodel.logging.7.5.1.nupkg.sha512",
+    "C:\\Users\\lbálint\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.5.1\\microsoft.identitymodel.tokens.7.5.1.nupkg.sha512",
+    "C:\\Users\\lbálint\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\lbálint\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.5.1\\system.identitymodel.tokens.jwt.7.5.1.nupkg.sha512"
   ],
   "logs": []
 }

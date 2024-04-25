@@ -1,0 +1,16 @@
+﻿<Window x:Class="Connect2GetherWPF.UserDataChangeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Connect2GetherWPF"
+        mc:Ignorable="d"
+        Title="UserDataChangeWindow" Height="230" Width="349">
+    <Grid Background="#FF191919">
+        <ComboBox x:Name="cmb_users" DisplayMemberPath="username" SelectedValuePath="id" ItemsSource="{Binding Users}" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="161" SelectionChanged="cmb_users_SelectionChanged"/>
+        <TextBox x:Name="Username_txtb" HorizontalAlignment="Center" Margin="0,89,0,0" TextWrapping="Wrap" Text="ExampleName" VerticalAlignment="Top" Width="161" Foreground="#FF00FF9C" Background="#FF191919" BorderBrush="#FF00FF9C"/>
+        <TextBox x:Name="email_txtb" HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap" Text="Example@example.ex" VerticalAlignment="Top" Width="161" TextChanged="email_txtb_TextChanged" Foreground="#FF00FF9C" Background="#FF191919" BorderBrush="#FF00FF9C"/>
+        <Button x:Name="SendData" Content="Küldés" HorizontalAlignment="Left" Margin="226,162,0,0" VerticalAlignment="Top" Foreground="#505050" Background="#FFC94A" BorderBrush="#505050" Click="SendData_Click" Width="64" Height="30"/>
+        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="58,162,0,0" VerticalAlignment="Top" Foreground="#FF00FF9C" Background="#505050" BorderBrush="#FF00FF9C" Click="Cancel_Click" Width="64" Height="30"/>
+    </Grid>
+</Window>

@@ -56,7 +56,6 @@ namespace Connect2GetherWPF
         public async Task fetchSusUsers()
         {
             string url = _baseUrl + "Moderator/AllSuspiciousUser";
-
             try
             {
                 await Console.Out.WriteLineAsync(jwToken);

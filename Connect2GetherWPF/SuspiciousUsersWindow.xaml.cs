@@ -81,6 +81,9 @@ namespace Connect2GetherWPF
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+           
+            AdminHome w = new AdminHome(jwToken,_baseUrl);
+            w.Show();
             this.Close();
         }
 
@@ -185,5 +188,27 @@ namespace Connect2GetherWPF
         {
 
         }
+
+        private void Sus_searchbar_txtb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = Sus_searchbar_txtb.Text.ToLower();
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                dg_susUsers.ItemsSource = SusUserlist;
+            }
+            else
+            {
+                var filteredUsers = SusUserlist.Where(user =>
+                    (user.username != null && user.username.ToLower().Contains(searchText)) ||
+                    (user.userId.ToString().Contains(searchText)) || 
+                    (user.id.ToString().Contains(searchText))
+                ).ToList();
+
+                dg_susUsers.ItemsSource = filteredUsers;
+            }
+        }
+
+
     }
 }

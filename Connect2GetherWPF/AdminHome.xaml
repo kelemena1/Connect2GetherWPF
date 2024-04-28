@@ -69,5 +69,7 @@
         <Button x:Name="Change_data" Content="Manage user data" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Height="24" Width="118" Click="Change_data_Click" Background="#FF5755FE" Foreground="White"/>
         <Button x:Name="MarkSus_btn" Content="Mark as &#xD;&#xA;suspicious" HorizontalAlignment="Left" Margin="457,197,0,0" VerticalAlignment="Top" Width="85" Height="49" Click="MarkSus_btn_Click" Background="#FFDD5746" Foreground="White"/>
         <Button x:Name="button" Content="Selected post&#xD;&#xA;Load &#xD;&#xA;Comments" HorizontalAlignment="Left" Margin="554,140,0,0" VerticalAlignment="Top" Width="95" Height="60" Click="button_Click_1" Background="#FFFFC94A" Foreground="Black"/>
+        <Button x:Name="logout_btn" Content="Log &#xD;&#xA;Out" HorizontalAlignment="Left" Margin="1028,6,0,0" VerticalAlignment="Top" Background="#FF00FF9C" Width="70" Height="45" FontSize="14" FontWeight="Bold" Foreground="#FF0E0000" FontFamily="Arial Black" Click="logout_btn_Click"/>
+        <TextBox x:Name="PostSearchbar_txtb" HorizontalAlignment="Left" Margin="675,44,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"  Background="#FF191919" BorderBrush="#FF41B06E" Foreground="#41B06E" SelectionBrush="#FF00FF9C" TextChanged="PostSearchbar_txtb_TextChanged"/>
     </Grid>
 </Window>

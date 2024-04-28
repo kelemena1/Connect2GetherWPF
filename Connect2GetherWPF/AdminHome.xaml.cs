@@ -26,7 +26,7 @@ namespace Connect2GetherWPF
     public partial class AdminHome : Window
     {
         //variables
-       
+        public static bool isactive = false;
         public static string jwToken = "";
         public static HttpClient client = new HttpClient();
         public static string _baseUrl = "";
@@ -295,6 +295,7 @@ namespace Connect2GetherWPF
         {
             SuspiciousUsersWindow w = new SuspiciousUsersWindow(_baseUrl,jwToken);
             w.Show();
+            this.Close();
            
         }
 
@@ -302,41 +303,49 @@ namespace Connect2GetherWPF
         {
             UserDataChangeWindow w = new UserDataChangeWindow(jwToken, _baseUrl);
             w.Show();
+            this.Close();
         }
 
         private async void MarkSus_btn_Click(object sender, RoutedEventArgs e)
         {
+            
             try
             {
                 if (dg_users.SelectedItem != null)
                 {
-                    MessageBoxResult result = MessageBox.Show("Are you sure you want to mark the user?", "Confirmation", MessageBoxButton.YesNo);
-
-                    if (result == MessageBoxResult.Yes)
+                    if ((dg_users.SelectedItem as User).suspicious == false)
                     {
-                        int id = (dg_users.SelectedItem as User).id;
-                        if (client.DefaultRequestHeaders.Authorization != null)
+                        MessageBoxResult result = MessageBox.Show("Are you sure you want to mark the user?", "Confirmation", MessageBoxButton.YesNo);
+
+                        if (result == MessageBoxResult.Yes)
                         {
+                            int id = (dg_users.SelectedItem as User).id;
+                            if (client.DefaultRequestHeaders.Authorization != null)
+                            {
 
-                            client.DefaultRequestHeaders.Remove("Authorization");
+                                client.DefaultRequestHeaders.Remove("Authorization");
+                            }
+
+                            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {jwToken}");
+
+                            string url = $"{_baseUrl}Moderator/AddSuspicious?id={id}";
+
+
+                            HttpResponseMessage response = await client.PostAsync(url, null);
+                            await Console.Out.WriteLineAsync(response.StatusCode.ToString());
+                            if (response.IsSuccessStatusCode)
+                            {
+                                MessageBox.Show("Sucessfully marked the user as suspicious!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to mark the user. Please check your connection!");
+
+                            }
                         }
-
-                        client.DefaultRequestHeaders.Add("Authorization", $"Bearer {jwToken}");
-
-                        string url = $"{_baseUrl}Moderator/AddSuspicious?id={id}";
-
-
-                        HttpResponseMessage response = await client.PostAsync(url,null);
-                        await Console.Out.WriteLineAsync(response.StatusCode.ToString());
-                        if (response.IsSuccessStatusCode)
-                        {
-                            MessageBox.Show("Sucessfully marked the user as suspicious!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Failed to mark the user. Please check your connection!");
-                            MessageBox.Show(response.StatusCode.ToString());
-                        }
+                    }
+                    else {
+                        MessageBox.Show("User already marked!");
                     }
                 }
                 else
@@ -360,13 +369,54 @@ namespace Connect2GetherWPF
             Post selectedPost =  dg_Post.SelectedItem as Post;
             if (selectedPost != null)
             {
-                CommentManagerWindow w = new CommentManagerWindow(selectedPost,_baseUrl,jwToken);
-                w.Show();
+               
+
+                    CommentManagerWindow w = new CommentManagerWindow(selectedPost, _baseUrl, jwToken);
+                    w.Show();
+                    this.Close();
+                    
+                
+             
+
             }
             else {
 
                 MessageBox.Show("Please select a Post!");
             }
+        }
+        private void SearchPosts(string searchText)
+        {
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                dg_Post.ItemsSource = PostList;
+            }
+            else
+            {
+                int postId;
+                bool isNumeric = int.TryParse(searchText, out postId);
+
+                var filteredPosts = PostList.Where(post =>
+                    (post.user.username != null && post.user.username.ToLower().Contains(searchText)) ||
+                    (post.Title != null && post.Title.ToLower().Contains(searchText)) ||
+                    (isNumeric && post.Id == postId)
+                ).ToList();
+
+                dg_Post.ItemsSource = filteredPosts; 
+            }
+        }
+
+
+        private void PostSearchbar_txtb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = PostSearchbar_txtb.Text.ToLower();
+            SearchPosts(searchText);
+        }
+
+        private void logout_btn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow w = new MainWindow();
+            w.Show();
+            this.Close();
         }
     }
 }

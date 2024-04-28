@@ -66,7 +66,7 @@ namespace Connect2GetherWPF
                 string tokenTemp = JsonConvert.SerializeObject(tokenData);
                 dynamic tokenPayload = JsonConvert.DeserializeObject(tokenTemp);
                 dynamic tokenObject = tokenPayload.Payload;
-                MessageBox.Show("" + responseBody);
+                MessageBox.Show("Sikeres Bejelentkezés!");
                 if (tokenObject.role == "Admin" || tokenObject.role == "Moderator")
                 {
                     

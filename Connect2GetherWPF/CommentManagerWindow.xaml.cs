@@ -131,6 +131,8 @@ namespace Connect2GetherWPF
 
         private void Close_btn_Click(object sender, RoutedEventArgs e)
         {
+            AdminHome w = new AdminHome(jwToken, _baseUrl);
+            w.Show();
             this.Close();
         }
 

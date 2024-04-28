@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Connect2GetherWPF", "Connect2GetherWPF.csproj", "{910B1550-EC4C-494D-939B-B973E121C661}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Connect2GetherSetup", "..\Connect2GetherSetup\Connect2GetherSetup.vdproj", "{3774C77A-303F-4F08-B8D9-B732F4B24133}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{910B1550-EC4C-494D-939B-B973E121C661}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{910B1550-EC4C-494D-939B-B973E121C661}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{910B1550-EC4C-494D-939B-B973E121C661}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3774C77A-303F-4F08-B8D9-B732F4B24133}.Debug|Any CPU.ActiveCfg = Debug
+		{3774C77A-303F-4F08-B8D9-B732F4B24133}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

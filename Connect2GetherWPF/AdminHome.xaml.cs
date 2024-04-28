@@ -50,7 +50,7 @@ namespace Connect2GetherWPF
         public static async Task SusUserLoader() 
         {
 
-            string url = _baseUrl+"AdminSuspiciousUsers/AllSuspiciousUser";
+            string url = _baseUrl+ "Moderator/AllSuspiciousUser";
 
             try
             {
@@ -65,7 +65,7 @@ namespace Connect2GetherWPF
                     List<SuspiciousUser> users = JsonConvert.DeserializeObject<List<SuspiciousUser>>(responseBody);
 
                     SusUserlist = users;
-                    
+                    Console.WriteLine(SusUserlist.Count);
 
                 }
             }
@@ -117,20 +117,18 @@ namespace Connect2GetherWPF
 
         }
 
-        
+
 
 
         public async Task LoadAndDisplayUserData()
         {
-            //await SusUserLoader();
-            await SusUserLoader();
+            await SusUserLoader(); // SusUserList betöltése
             await PostCounter();
             await UserCounter();
             await fetchUsers();
             await fetchPosts();
-            Postcountlbl.Content =countPost.ToString();
+            Postcountlbl.Content = countPost.ToString();
             UserCountlbl.Content = countUser.ToString();
-           // dg_Post.ItemsSource = post;
             dg_users.ItemsSource = UserList;
             dg_Post.ItemsSource = PostList;
         }
@@ -175,7 +173,10 @@ namespace Connect2GetherWPF
                 {
                     dynamic responseBody = await response.Content.ReadAsStringAsync();
                     await Console.Out.WriteLineAsync(responseBody);
-                    List<User> users = JsonConvert.DeserializeObject<List<User>>(responseBody);
+                    List<User> users = JsonConvert.DeserializeObject<List<User>>(responseBody, new JsonSerializerSettings
+                    {
+                        DateFormatString = "yyyy-MM-ddTHH:mm:ss" 
+                    });
                     UserList = users;
                 }
             }
@@ -184,7 +185,10 @@ namespace Connect2GetherWPF
 
                 throw new Exception($"An error occurred while fetching user data: {ex.Message}");
             }
-
+            await Console.Out.WriteLineAsync(SusUserlist.Count.ToString());
+            await Console.Out.WriteLineAsync(SusUserlist.Count.ToString());
+            SusUserLoader();
+            await Console.Out.WriteLineAsync(SusUserlist.Count.ToString());
             foreach (var x in UserList)
             {
                 foreach (var y in SusUserlist)
@@ -295,7 +299,7 @@ namespace Connect2GetherWPF
             }
             finally
             {
-                LoadAndDisplayUserData();
+                LoadAndDisplayUserData().Wait();
             }
         }
 

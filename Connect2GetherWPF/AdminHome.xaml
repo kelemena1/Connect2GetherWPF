@@ -21,7 +21,7 @@
                 <DataGridTextColumn Header="Username" Binding="{Binding displayName}" Width="*" />
                 <DataGridTextColumn Header="Email" Binding="{Binding displayEmail}" Width="*" />
                 <DataGridTextColumn Header="Active User" Binding="{Binding displayActiveUser}" Width="*" />
-                <DataGridTextColumn Header="Last Login" Binding="{Binding displayLastLogin}" Width="*" />
+                <DataGridTextColumn Header="Last Login" Binding="{Binding lastLogin}" Width="*" />
                 <DataGridTextColumn Header="Validated" Binding="{Binding displayIsValidated}" Width="*" />
                 <DataGridTextColumn Header="Suspicious" Binding="{Binding suspicious}" Width="*" />
             </DataGrid.Columns>

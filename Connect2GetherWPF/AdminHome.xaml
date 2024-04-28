@@ -20,9 +20,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Username" Binding="{Binding displayName}" Width="*" />
                 <DataGridTextColumn Header="Email" Binding="{Binding displayEmail}" Width="*" />
-                <DataGridTextColumn Header="Active User" Binding="{Binding displayActiveUser}" Width="*" />
+                <DataGridTextColumn Header="Is Validated?" Binding="{Binding activeUser}" Width="*" />
                 <DataGridTextColumn Header="Last Login" Binding="{Binding lastLogin}" Width="*" />
-                <DataGridTextColumn Header="Validated" Binding="{Binding displayIsValidated}" Width="*" />
                 <DataGridTextColumn Header="Suspicious" Binding="{Binding suspicious}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
@@ -40,9 +39,9 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding displayId}" />
-                <DataGridTextColumn Header="Description" Binding="{Binding displayDescription}" />
-                <DataGridTextColumn Header="Title" Binding="{Binding displayTitle}" />
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
                 <DataGridTextColumn Header="Username" Binding="{Binding displayUsername}" />
                 <DataGridTemplateColumn Header="" Width="38" CanUserSort="True" x:Name="SP1" >
                     <DataGridTemplateColumn.CellTemplate>
@@ -64,11 +63,11 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Background="#FF191919" BorderBrush="#FF41B06E" Foreground="#41B06E" SelectionBrush="#FF00FF9C" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="searchbar_txtb" HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Background="#FF191919" BorderBrush="#FF41B06E" Foreground="#41B06E" SelectionBrush="#FF00FF9C" TextChanged="TextBox_TextChanged"/>
         <Button Content="Suspicious" HorizontalAlignment="Left" Margin="133,6,0,0" VerticalAlignment="Top" Width="85" Height="24"  Foreground="White" Background="#5755FE" BorderBrush="#5755FE" Click="Button_Click"/>
-        <Button x:Name="Delete_btn" Content="Delete selected&#xD;&#xA; user" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Margin="457,140,0,0" Click="Change_data_btn_Click" Height="47"/>
-        <Button x:Name="Change_data" Content="Manage user data" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Height="24" Width="118" Click="Change_data_Click"/>
-        <Button x:Name="MarkSus_btn" Content="Mark as &#xD;&#xA;suspicious" HorizontalAlignment="Left" Margin="457,197,0,0" VerticalAlignment="Top" Width="85" Height="49" Click="MarkSus_btn_Click"/>
-        <Button x:Name="button" Content="Selected post&#xD;&#xA;Load &#xD;&#xA;Comments" HorizontalAlignment="Left" Margin="554,140,0,0" VerticalAlignment="Top" Width="95" Height="60" Click="button_Click_1"/>
+        <Button x:Name="Delete_btn" Content="Delete selected&#xD;&#xA; user" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Margin="457,140,0,0" Click="Change_data_btn_Click" Height="47" Background="#FFDD5746" Foreground="White"/>
+        <Button x:Name="Change_data" Content="Manage user data" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Height="24" Width="118" Click="Change_data_Click" Background="#FF5755FE" Foreground="White"/>
+        <Button x:Name="MarkSus_btn" Content="Mark as &#xD;&#xA;suspicious" HorizontalAlignment="Left" Margin="457,197,0,0" VerticalAlignment="Top" Width="85" Height="49" Click="MarkSus_btn_Click" Background="#FFDD5746" Foreground="White"/>
+        <Button x:Name="button" Content="Selected post&#xD;&#xA;Load &#xD;&#xA;Comments" HorizontalAlignment="Left" Margin="554,140,0,0" VerticalAlignment="Top" Width="95" Height="60" Click="button_Click_1" Background="#FFFFC94A" Foreground="Black"/>
     </Grid>
 </Window>

@@ -145,17 +145,62 @@ namespace Connect2GetherWPF
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            string searchText = searchbar_txtb.Text.ToLower();
 
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                dg_users.ItemsSource = UserList;
+            }
+            else
+            {
+                var filteredUsers = UserList.Where(user =>
+                    (user.username != null && user.username.ToLower().Contains(searchText)) ||
+                    (user.email != null && user.email.ToLower().Contains(searchText)) ||
+                    (user.displayName != null && user.displayName.ToLower().Contains(searchText))
+                ).ToList();
+
+                dg_users.ItemsSource = filteredUsers;
+            }
         }
+
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void Change_data_btn_Click(object sender, RoutedEventArgs e)
+        private async void Change_data_btn_Click(object sender, RoutedEventArgs e)
         {
-           
+            MessageBoxResult result = MessageBox.Show("Are you sure you want deleted the selected user?", "Confirmation", MessageBoxButton.YesNo);
+
+            if (dg_users.SelectedItem != null)
+            {
+                if (result == MessageBoxResult.Yes) { 
+                    try
+                    {
+                        int id = (dg_users.SelectedItem as User).id;
+                        string url = _baseUrl + $"AdminUsers/DeleteUserById?id={id}";
+                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwToken);
+                        HttpResponseMessage response = await client.DeleteAsync(url);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show("User deleted successfully");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Network Error!");
+                    }
+                    finally { 
+                        LoadAndDisplayUserData();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a user to delete!");
+            }
+        
         }
 
         public async Task fetchUsers() 
@@ -185,10 +230,9 @@ namespace Connect2GetherWPF
 
                 throw new Exception($"An error occurred while fetching user data: {ex.Message}");
             }
-            await Console.Out.WriteLineAsync(SusUserlist.Count.ToString());
-            await Console.Out.WriteLineAsync(SusUserlist.Count.ToString());
+
             SusUserLoader();
-            await Console.Out.WriteLineAsync(SusUserlist.Count.ToString());
+
             foreach (var x in UserList)
             {
                 foreach (var y in SusUserlist)
@@ -218,6 +262,13 @@ namespace Connect2GetherWPF
                     List<Post> posts = JsonConvert.DeserializeObject<List<Post>>(responseBody);
                     PostList = posts;
                 }
+                await Console.Out.WriteLineAsync(PostList[0].user.username);
+                foreach (var x in PostList) {
+                    await Console.Out.WriteLineAsync(x.displayUsername);
+                }
+
+
+
             }
             catch (Exception ex)
             {
@@ -299,7 +350,7 @@ namespace Connect2GetherWPF
             }
             finally
             {
-                LoadAndDisplayUserData().Wait();
+                LoadAndDisplayUserData();
             }
         }
 

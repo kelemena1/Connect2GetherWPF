@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="CommentManagerWindow" Height="450" Width="800">
     <Grid Background="#FF191919">
-        <DataGrid x:Name="comments_dg" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,7,125,10" SelectionChanged="dataGrid_SelectionChanged" HorizontalGridLinesBrush="#FF41B06E" VerticalGridLinesBrush="Transparent" Background="Transparent" Foreground="White" RowBackground="#4C41B06E" HeadersVisibility="Column" AlternatingRowBackground="#B241B06E">
+        <DataGrid x:Name="comments_dg" AutoGenerateColumns="False"  Margin="10,7,125,10" SelectionChanged="dataGrid_SelectionChanged" HorizontalGridLinesBrush="#FF41B06E" VerticalGridLinesBrush="Transparent" Background="Transparent" Foreground="White" RowBackground="#4C41B06E" HeadersVisibility="Column" AlternatingRowBackground="#B241B06E">
             <DataGrid.Resources>
                 <SolidColorBrush Color="Black" x:Key="columnForeground"/>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
@@ -16,9 +16,8 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
+                <DataGridTextColumn Header="ID" Binding="{Binding id}" />
+                <DataGridTextColumn Header="Description" Binding="{Binding text}" />
                 <DataGridTextColumn Header="Username" Binding="{Binding displayUsername}" />
                 <DataGridTemplateColumn Header="" Width="38" CanUserSort="True" x:Name="SP1" >
                     <DataGridTemplateColumn.CellTemplate>
@@ -40,7 +39,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Close_btn" Content="Close" HorizontalAlignment="Right" Margin="0,134,10,0" VerticalAlignment="Top" Width="110" Background="#FF0DCAF0" BorderBrush="#FF0DCAF0" Click="Close_btn_Click"/>
+        <Button x:Name="Close_btn" Content="Close" HorizontalAlignment="Right" Margin="0,333,10,0" VerticalAlignment="Top" Width="110" Background="#FF0DCAF0" BorderBrush="#FF0DCAF0" Click="Close_btn_Click"/>
         <Button x:Name="SuspiciousUserDelete" Content="Suspicious&#xD;&#xA;User&#xD;&#xA;ByComment" HorizontalAlignment="Right" Margin="0,7,10,0" VerticalAlignment="Top" Height="69" Width="110" Click="SuspiciousUserByComment_click" Background="#FF0DCAF0" BorderBrush="#FF0DCAF0"/>
         <Button x:Name="DeleteComments" Content="Delete comment" HorizontalAlignment="Right" Margin="0,81,10,0" VerticalAlignment="Top" Click="DeleteComments_Click" Height="48" Width="110" Background="#FFDD5746" BorderBrush="#FFDD5746" Foreground="White"/>
 

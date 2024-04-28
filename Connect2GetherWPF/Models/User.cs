@@ -18,15 +18,17 @@ namespace Connect2GetherWPF.Models
         public int point { get; set; }
         public int permissionId { get; set; }
         public DateTime lastLogin { get; set; }
-        public string? validatedKey { get; set; }
+        public string? ValidatedKey { get; set; }
         public Permission? permission { get; set; }
         public string displayPermissionName { get; set; }
         public string displayName { get; set; }
         public string displayEmail { get; set; }
         public bool displayActiveUser { get; set; }
         public DateTime displayLastLogin { get; set; }
-        public bool displayIsValidated { get; set; }
+ 
         public bool suspicious { get; set; }
+
+        
 
         public User(int id, string username, string hash, string email, bool activeUser, int rankId, DateTime registrationDate, int point, int permissionId, DateTime lastLogin, string validateKey, Permission permission)
         {
@@ -40,20 +42,12 @@ namespace Connect2GetherWPF.Models
             this.point = point;
             this.permissionId = permissionId;
             this.lastLogin = lastLogin;
-            this.validatedKey = validateKey;
+            this.ValidatedKey = validateKey;
             this.permission = permission;
             this.displayName = this.username;
             this.displayEmail = this.email;
             if (permission != null) {
                 this.displayPermissionName = permission.Name;
-            }
-            if (validatedKey != "NULL" ||validatedKey != "null" || validatedKey != null || validatedKey !="")
-            { 
-                displayIsValidated = false;
-            }
-            else
-            {
-                displayIsValidated = true;
             }
             this.suspicious = false;
            

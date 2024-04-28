@@ -20,7 +20,10 @@ namespace Connect2GetherWPF.Models
         public int displayId { get; set; }
         public string displayDescription { get; set; }
         public string displayTitle { get; set; }
-        public string displayUsername { get; set; }
+        public string displayUsername { get {return user.username; }set {
+
+                displayUsername = user.username;
+            } }
 
         public DateTime displayUploadDate { get; set; }
 
@@ -36,11 +39,7 @@ namespace Connect2GetherWPF.Models
             displayId = id;
             displayDescription = description;
             displayTitle = title;
-            displayUsername = user.username;
             displayUploadDate = uploadDate;
-
-
-
         }
 
         public Post()

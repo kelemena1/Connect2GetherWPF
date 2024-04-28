@@ -32,10 +32,10 @@ namespace Connect2GetherWPF
         public static int SelectedPostId = 0;
         public CommentManagerWindow(Post post,string url,string token)
         {
+            _baseUrl = url;
             InitializeComponent();
             selectedPost = post;
-            comments_dg.ItemsSource = selectedPost.Comments;
-            _baseUrl = url;
+            fetchComments();
             jwToken = token;
             SelectedPostId = post.Id;
         }
@@ -45,12 +45,33 @@ namespace Connect2GetherWPF
 
         }
 
-        private void DeleteComments_Click(object sender, RoutedEventArgs e)
+        private async void DeleteComments_Click(object sender, RoutedEventArgs e)
         {
+            
             Comment SelectedComment = comments_dg.SelectedItem as Comment;
-            if (SelectedComment != null) 
+            
+            if (SelectedComment != null)
             {
-
+                MessageBoxResult result = MessageBox.Show("Are you sure you want deleted the selected user?", "Confirmation", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes) {
+                    try
+                    {
+                        string url = _baseUrl + $"Comment/AdminOperation/DeleteCommentByAdmin?id={SelectedComment.id}";
+                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwToken);
+                        HttpResponseMessage response = await client.DeleteAsync(url);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show("Sucessfully deleted the comment!");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Network Error!");
+                    }
+                    finally { 
+                        LoadAndDisplayUserData();
+                    }
+              }
             }
             else
             {
@@ -68,7 +89,7 @@ namespace Connect2GetherWPF
 
                     if (result == MessageBoxResult.Yes)
                     {
-                        int id = (comments_dg.SelectedItem as User).id;
+                        int id = (comments_dg.SelectedItem as Comment).userId;
                         if (client.DefaultRequestHeaders.Authorization != null)
                         {
 
@@ -112,36 +133,36 @@ namespace Connect2GetherWPF
         {
             this.Close();
         }
-    
-        private async void LoadAndDisplayUserData() { 
-            await fetchComments();
 
+        private async void LoadAndDisplayUserData()
+        {
+            await fetchComments();
+            comments_dg.ItemsSource = commentsList;
         }
+
         public async Task fetchComments()
         {
-            string url = _baseUrl + "UserPost/AllUserPost";
-
+            await Console.Out.WriteLineAsync(selectedPost.Id.ToString());
+            string url = $"{_baseUrl}Comment/CommentByPostId?id={selectedPost.Id}";
+            await Console.Out.WriteLineAsync(_baseUrl);
             try
             {
-                await Console.Out.WriteLineAsync(jwToken);
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwToken);
                 HttpResponseMessage response = await client.GetAsync(url);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    dynamic responseBody = await response.Content.ReadAsStringAsync();
+                    string responseBody = await response.Content.ReadAsStringAsync();
                     await Console.Out.WriteLineAsync(responseBody);
-                    List<Post> posts = JsonConvert.DeserializeObject<List<Post>>(responseBody);
-                    comments_dg.ItemsSource = posts.Find(x => x.Id == SelectedPostId).Comments;
-                  
+                    commentsList = JsonConvert.DeserializeObject<List<Comment>>(responseBody);
+
+                    comments_dg.ItemsSource = commentsList;
                 }
             }
             catch (Exception ex)
             {
-
                 throw new Exception($"An error occurred while fetching user data: {ex.Message}");
             }
-
         }
+
     }
 }

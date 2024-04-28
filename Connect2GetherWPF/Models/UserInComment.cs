@@ -9,12 +9,10 @@ namespace Connect2GetherWPF.Models
     public class UserInComment
     {
         public string Username { get; set; }
-        public Permission Permission { get; set; }
 
-        public UserInComment(string username, Permission permission)
+        public UserInComment(string username)
         {
             Username = username;
-            Permission = permission;
         }
     }
 }

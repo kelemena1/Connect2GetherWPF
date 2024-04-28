@@ -10,7 +10,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dg_susUsers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="6,10,111,10" SelectionChanged="dg_susUsers_SelectionChanged" HorizontalGridLinesBrush="#FF41B06E" VerticalGridLinesBrush="Transparent" Background="Transparent" Foreground="White" RowBackground="#4C41B06E" HeadersVisibility="Column" AlternatingRowBackground="#B241B06E">
+        <DataGrid x:Name="dg_susUsers" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="6,10,111,10" SelectionChanged="dg_susUsers_SelectionChanged" HorizontalGridLinesBrush="#FF41B06E" VerticalGridLinesBrush="Transparent" Background="Transparent" Foreground="White" RowBackground="#4C41B06E" HeadersVisibility="Column" AlternatingRowBackground="#B241B06E">
             <DataGrid.Resources>
                 <SolidColorBrush Color="Black" x:Key="columnForeground"/>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
@@ -19,10 +19,9 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
-                <DataGridTextColumn Header="Username" Binding="{Binding displayUsername}" />
+                <DataGridTextColumn Header="ID" Binding="{Binding id}" />
+                <DataGridTextColumn Header="User Id" Binding="{Binding userId}" />
+                <DataGridTextColumn Header="Username" Binding="{Binding username}" />
                 <DataGridTemplateColumn Header="" Width="38" CanUserSort="True" x:Name="SP1" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate >

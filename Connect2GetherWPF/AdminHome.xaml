@@ -26,10 +26,10 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label x:Name="Postcountlbl" Content="1234" HorizontalAlignment="Left" Margin="457,67,0,0" VerticalAlignment="Top" Background="#FFDD5746" Foreground="White" Height="68" Width="85" FontFamily="Bahnschrift SemiBold" FontSize="36"/>
-        <Label  Content="Posts" HorizontalAlignment="Left" Margin="455,101,0,0" VerticalAlignment="Top" Foreground="White" Height="25" Width="37"/>
-        <Label x:Name="UserCountlbl" Content="1234" HorizontalAlignment="Left" Margin="560,67,0,0" VerticalAlignment="Top" Background="#FFC94A" Foreground="Black" Height="68" FontFamily="Bahnschrift SemiBold" FontSize="36" Width="85"/>
-        <Label Content="Users" HorizontalAlignment="Left" Margin="560,101,0,0" VerticalAlignment="Top" Foreground="Black" Height="25" Width="38"/>
+        <Label x:Name="Postcountlbl" Content="1234" HorizontalAlignment="Left" Margin="554,62,0,0" VerticalAlignment="Top" Background="#FFFFC94A" Foreground="Black" Height="68" Width="85" FontFamily="Bahnschrift SemiBold" FontSize="36"/>
+        <Label  Content="Posts" HorizontalAlignment="Left" Margin="560,99,0,0" VerticalAlignment="Top" Foreground="Black" Height="25" Width="36"/>
+        <Label x:Name="UserCountlbl" Content="1234" HorizontalAlignment="Left" Margin="457,65,0,0" VerticalAlignment="Top" Background="#FFDD5746" Foreground="White" Height="68" FontFamily="Bahnschrift SemiBold" FontSize="36" Width="85"/>
+        <Label Content="Users" HorizontalAlignment="Left" Margin="462,99,0,0" VerticalAlignment="Top" Foreground="White" Height="25" Width="38" RenderTransformOrigin="0.516,0.554"/>
         <DataGrid x:Name="dg_Post" AutoGenerateColumns="false" Margin="675,65,0,8" BorderBrush="{x:Null}" HorizontalGridLinesBrush="#FF41B06E" VerticalGridLinesBrush="Transparent" Background="Transparent" Foreground="White" RowBackground="#4C41B06E" HeadersVisibility="Column" AlternatingRowBackground="#B241B06E"  Height="361" Width="416" SelectionChanged="DataGrid_SelectionChanged" HorizontalAlignment="Left">
             <DataGrid.Resources>
                 <SolidColorBrush Color="Black" x:Key="columnForeground"/>
@@ -71,5 +71,6 @@
         <Button x:Name="button" Content="Selected post&#xD;&#xA;Load &#xD;&#xA;Comments" HorizontalAlignment="Left" Margin="554,140,0,0" VerticalAlignment="Top" Width="95" Height="60" Click="button_Click_1" Background="#FFFFC94A" Foreground="Black"/>
         <Button x:Name="logout_btn" Content="Log &#xD;&#xA;Out" HorizontalAlignment="Left" Margin="1028,6,0,0" VerticalAlignment="Top" Background="#FF00FF9C" Width="70" Height="45" FontSize="14" FontWeight="Bold" Foreground="#FF0E0000" FontFamily="Arial Black" Click="logout_btn_Click"/>
         <TextBox x:Name="PostSearchbar_txtb" HorizontalAlignment="Left" Margin="675,44,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"  Background="#FF191919" BorderBrush="#FF41B06E" Foreground="#41B06E" SelectionBrush="#FF00FF9C" TextChanged="PostSearchbar_txtb_TextChanged"/>
+        <Button x:Name="Email_sender_btn" Content="send email&#xD;&#xA;to&#xD;&#xA;selected user" HorizontalAlignment="Left" Margin="457,251,0,0" VerticalAlignment="Top" Height="74" Width="97" Background="#FFDD5746" Foreground="White" Click="send_mail_onclick"/>
     </Grid>
 </Window>

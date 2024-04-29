@@ -418,5 +418,11 @@ namespace Connect2GetherWPF
             w.Show();
             this.Close();
         }
+
+        private void send_mail_onclick(object sender, RoutedEventArgs e)
+        {
+
+
+        }
     }
 }

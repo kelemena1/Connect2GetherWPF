@@ -1,0 +1,27 @@
+﻿<Window x:Class="Connect2GetherWPF.EmailSenderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Connect2GetherWPF"
+        mc:Ignorable="d"
+        Title="EmailSenderWindow" Height="450" Width="403">
+    <Grid Margin="0,0,3,0">
+        <ComboBox x:Name="users_cmbx" HorizontalAlignment="Left" Margin="73,24,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="users_cmbx_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding username}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBox x:Name="title_txtb" HorizontalAlignment="Left" Margin="53,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="body_txtb" HorizontalAlignment="Left" Margin="10,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="290"/>
+        <Label x:Name="label" Content="Message" HorizontalAlignment="Left" Margin="116,103,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Title" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="Adressee" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Send" HorizontalAlignment="Left" Margin="313,37,0,0" VerticalAlignment="Top" Width="77" Height="50" Click="button_Click"/>
+        <Button x:Name="Close_btn" Content="Close" HorizontalAlignment="Left" Margin="313,342,0,0" VerticalAlignment="Top" Width="77" Height="50" Click="Close_btn_Click"/>
+
+    </Grid>
+</Window>

@@ -32,7 +32,24 @@ namespace Connect2GetherWPF
         string jwToken = "";
         public static string _baseUrl = "";
         HttpClient client = new();
-        
+        List<Permission> permissions = new List<Permission>();
+
+        public async Task fetchPermissions()
+        {
+            string url = $"{_baseUrl}AdminPermission/AllPermission";
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwToken);
+            HttpResponseMessage response = await client.GetAsync(url);
+            if (response.IsSuccessStatusCode)
+            {
+                dynamic responseBody = await response.Content.ReadAsStringAsync();
+                await Console.Out.WriteLineAsync(responseBody);
+                permissions = JsonConvert.DeserializeObject<List<Permission>>(responseBody.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Network Error!");
+            }
+        }
         public UserDataChangeWindow(string token, string url)
         {
             InitializeComponent();
@@ -64,19 +81,18 @@ namespace Connect2GetherWPF
         }
         public async Task ChangeUserData(int id)
         {
-            string url = _baseUrl + $"AdminUsers/ChangeRegisterById?id={id}";
+            string url =  $"{_baseUrl}AdminUsers/ChangeRegisterById?id={id}";
 
-            HttpClient client = new();
+            HttpClient client = new HttpClient();
             Console.WriteLine(url);
-            string JsonConvertedUser = JsonConvert.SerializeObject(new
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwToken);
+            string JsonConvertedUser = JsonConvert.SerializeObject(new UserDataChange()
             {
                 userName = Username_txtb.Text,
                 email = email_txtb.Text,
-
-            });
+                permissionId = (permission_cmbx.SelectedItem as Permission).Id
+            }); 
             StringContent stringContent = new(JsonConvertedUser, Encoding.UTF8, "application/json");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwToken);
-
 
             Console.WriteLine(JsonConvertedUser);
             try
@@ -91,6 +107,9 @@ namespace Connect2GetherWPF
                 else
                 {
                     MessageBox.Show("Network error!");
+                    AdminHome w = new AdminHome(jwToken,_baseUrl);
+                    w.Show();
+                    this.Close();
                 }
             }
             catch (Exception e)
@@ -102,8 +121,11 @@ namespace Connect2GetherWPF
         {
             
             await UserData();
+            await fetchPermissions();
             cmb_users.ItemsSource = userList;
             cmb_users.SelectedIndex = 0;
+            permission_cmbx.ItemsSource = permissions;
+            permission_cmbx.SelectedIndex = 0;
             Username_txtb.Text = (cmb_users.Items[0] as User).username;
             email_txtb.Text = (cmb_users.Items[0] as User).email;
         }
@@ -153,6 +175,11 @@ namespace Connect2GetherWPF
             AdminHome w = new AdminHome(jwToken, _baseUrl);
             w.Show();
             this.Close();
+        }
+
+        private void permission_cmbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

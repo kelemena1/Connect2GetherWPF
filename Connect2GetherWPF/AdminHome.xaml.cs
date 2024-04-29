@@ -419,10 +419,18 @@ namespace Connect2GetherWPF
             this.Close();
         }
 
-        private void send_mail_onclick(object sender, RoutedEventArgs e)
+        private async void send_mail_onclick(object sender, RoutedEventArgs e)
         {
-
-
+            if (dg_users.SelectedItem != null)
+            {
+                int id = (dg_users.SelectedItem as User).id;
+                EmailSenderWindow w = new EmailSenderWindow(_baseUrl, jwToken, UserList, id);
+                w.Show();
+                this.Close();
+            }
+            else{
+                MessageBox.Show("Please select a user!");
+            }
         }
     }
 }

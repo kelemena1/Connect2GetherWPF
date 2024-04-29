@@ -19,5 +19,18 @@
         <TextBox x:Name="email_txtb" HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap" Text="Example@example.ex" VerticalAlignment="Top" Width="161" TextChanged="email_txtb_TextChanged" Foreground="#FF00FF9C" Background="#FF191919" BorderBrush="#FF00FF9C"/>
         <Button x:Name="SendData" Content="Küldés" HorizontalAlignment="Left" Margin="226,162,0,0" VerticalAlignment="Top" Foreground="#505050" Background="#FFC94A" BorderBrush="#505050" Click="SendData_Click" Width="64" Height="30"/>
         <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="58,162,0,0" VerticalAlignment="Top" Foreground="#FF00FF9C" Background="#505050" BorderBrush="#FF00FF9C" Click="Cancel_Click" Width="64" Height="30"/>
+        <ComboBox x:Name="permission_cmbx" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" Width="161" SelectionChanged="permission_cmbx_SelectionChanged">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" Opacity="0">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFE5E5E5" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
     </Grid>
 </Window>

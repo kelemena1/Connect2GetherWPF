@@ -9,12 +9,12 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace Connect2GetherWPF.Models
 {
-    internal class JWTtoken
+    public class JWTtoken
     {
        
-            string Name { get; set; }
-            string role { get; set; }
-            int id { get; set; }
+            public string Name { get; set; }
+            public string role { get; set; }
+            public int id { get; set; }
 
         
         public static JwtSecurityToken JWTokenDecoder(string token)
@@ -40,10 +40,9 @@ namespace Connect2GetherWPF.Models
             return token.Claims.First(claim => claim.Type == "role").Value;
         }
 
-
-
-
-
+        public JWTtoken()
+        {
+        }
 
         public JWTtoken(string jwt)
         {

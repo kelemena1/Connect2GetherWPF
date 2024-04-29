@@ -8,7 +8,18 @@ namespace Connect2GetherWPF.Models
 {
     internal class emailSender
     {
-        int id;
-        string subject { get;set }
+       public string Email { get; set; }
+       public string subject { get; set; }
+       public string body { get; set; }
+
+        public emailSender(int id, string subject, string body)
+        {
+            this.subject = subject;
+            this.body = body;
+        }
+
+        public emailSender()
+        {
+        }
     }
 }

@@ -16,5 +16,6 @@ namespace Connect2GetherWPF.Models
             Id = id;
             Name = name;
         }
+        public Permission() { }
     }
 }

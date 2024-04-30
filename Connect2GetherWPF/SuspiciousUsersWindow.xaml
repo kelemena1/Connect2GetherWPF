@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:Connect2GetherWPF"
         mc:Ignorable="d"
         Title="SuspiciousUsersWindow" Height="450" Width="410">
-    <Grid Background="#FF191919">
+    <Grid Background="#FF191919" Margin="0,0,0,-34">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dg_susUsers" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,38,147,10" SelectionChanged="dg_susUsers_SelectionChanged" HorizontalGridLinesBrush="#FF41B06E" VerticalGridLinesBrush="Transparent" Background="Transparent" Foreground="White" RowBackground="#4C41B06E" HeadersVisibility="Column" AlternatingRowBackground="#B241B06E">
+        <DataGrid x:Name="dg_susUsers" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,38,167,47" SelectionChanged="dg_susUsers_SelectionChanged" HorizontalGridLinesBrush="#FF41B06E" VerticalGridLinesBrush="Transparent" Background="Transparent" Foreground="White" RowBackground="#4C41B06E" HeadersVisibility="Column" AlternatingRowBackground="#B241B06E">
             <DataGrid.Resources>
                 <SolidColorBrush Color="Black" x:Key="columnForeground"/>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
@@ -42,9 +42,9 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="button" Content="Cancel" HorizontalAlignment="Right" Margin="0,160,33,0" VerticalAlignment="Top" Width="86" Click="button_Click" Height="43" Background="#FF0DCAF0" BorderBrush="#FF0DCAF0"/>
-        <Button x:Name="Delete_sus_mark" Content="Delete&#xD;&#xA;Suspicious&#xD;&#xA;Mark" HorizontalAlignment="Right" Margin="0,38,33,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="86" Height="65" Click="Delete_sus_mark_click" Background="#FF0DCAF0" BorderBrush="#FF0DCAF0"/>
-        <Button x:Name="button2" Content="Delete&#xD;&#xA;Suspicious" HorizontalAlignment="Right" Margin="0,108,33,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="47" Width="86" Click="Delete_sus_user_click" Background="#FF0DCAF0" BorderBrush="#FF0DCAF0"/>
+        <Button x:Name="button" Content="Cancel" HorizontalAlignment="Right" Margin="0,160,56,0" VerticalAlignment="Top" Width="86" Click="button_Click" Height="43" Background="#FF0DCAF0" BorderBrush="#FF0DCAF0"/>
+        <Button x:Name="Delete_sus_mark" Content="Delete&#xD;&#xA;Suspicious&#xD;&#xA;Mark" HorizontalAlignment="Right" Margin="0,38,56,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="86" Height="65" Click="Delete_sus_mark_click" Background="#FF0DCAF0" BorderBrush="#FF0DCAF0"/>
+        <Button x:Name="button2" Content="Delete&#xD;&#xA;Suspicious" HorizontalAlignment="Right" Margin="0,108,56,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="47" Width="86" Click="Delete_sus_user_click" Background="#FF0DCAF0" BorderBrush="#FF0DCAF0"/>
         <TextBox x:Name="Sus_searchbar_txtb" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220"  BorderBrush="#FF41B06E" Foreground="#41B06E" SelectionBrush="#FF00FF9C" TextChanged="Sus_searchbar_txtb_TextChanged">
             <TextBox.Background>
                 <SolidColorBrush Color="White" Opacity="0"/>

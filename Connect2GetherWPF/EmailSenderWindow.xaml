@@ -6,8 +6,14 @@
         xmlns:local="clr-namespace:Connect2GetherWPF"
         mc:Ignorable="d"
         Title="EmailSenderWindow" Height="450" Width="403">
-    <Grid Margin="0,0,3,0">
-        <ComboBox x:Name="users_cmbx" HorizontalAlignment="Left" Margin="73,24,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="users_cmbx_SelectionChanged">
+    <Grid Margin="0,0,3,0" Background="#FF191919">
+        <ComboBox x:Name="users_cmbx" HorizontalAlignment="Left" Margin="73,24,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="users_cmbx_SelectionChanged" BorderBrush="#FF41B06E">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" Opacity="0.04">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFE5E5E5" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding username}" />
@@ -15,13 +21,24 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <TextBox x:Name="title_txtb" HorizontalAlignment="Left" Margin="53,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="body_txtb" HorizontalAlignment="Left" Margin="10,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="290"/>
-        <Label x:Name="label" Content="Message" HorizontalAlignment="Left" Margin="116,103,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Title" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2" Content="Adressee" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Send" HorizontalAlignment="Left" Margin="313,37,0,0" VerticalAlignment="Top" Width="77" Height="50" Click="button_Click"/>
-        <Button x:Name="Close_btn" Content="Close" HorizontalAlignment="Left" Margin="313,342,0,0" VerticalAlignment="Top" Width="77" Height="50" Click="Close_btn_Click"/>
+        <TextBox x:Name="title_txtb" HorizontalAlignment="Left" Margin="53,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="#FF41B06E" Foreground="White">
+            <TextBox.Background>
+                <SolidColorBrush Color="White" Opacity="0"/>
+            </TextBox.Background>
+            <TextBox.SelectionTextBrush>
+                <SolidColorBrush Color="White" Opacity="0.005"/>
+            </TextBox.SelectionTextBrush>
+        </TextBox>
+        <TextBox x:Name="body_txtb" HorizontalAlignment="Left" Margin="10,134,0,40" TextWrapping="Wrap" Width="259" Foreground="White" SelectionBrush="White">
+            <TextBox.Background>
+                <SolidColorBrush Color="White" Opacity="0"/>
+            </TextBox.Background>
+        </TextBox>
+        <Label x:Name="label" Content="Message" HorizontalAlignment="Left" Margin="111,103,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="label1" Content="Title" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="label2" Content="Adressee" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Button x:Name="button" Content="Send" HorizontalAlignment="Left" Margin="293,39,0,0" VerticalAlignment="Top" Width="77" Height="50" Click="button_Click" Background="#FF41B06E" BorderBrush="White" Foreground="Black"/>
+        <Button x:Name="Close_btn" Content="Close" HorizontalAlignment="Left" Margin="293,254,0,0" VerticalAlignment="Top" Width="77" Height="50" Click="Close_btn_Click" Background="#FFDD5746"/>
 
     </Grid>
 </Window>

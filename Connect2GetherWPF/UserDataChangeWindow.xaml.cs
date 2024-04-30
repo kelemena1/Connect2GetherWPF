@@ -33,7 +33,38 @@ namespace Connect2GetherWPF
         public static string _baseUrl = "";
         HttpClient client = new();
         List<Permission> permissions = new List<Permission>();
+        JWTtoken Admin = new JWTtoken();
 
+        public async Task SendEmailForDataChange( int Uid,string sender,string Body,string Subject)
+        {
+            string url = $"{_baseUrl}AdminUsers/EmailSender?id={Uid}&sender={sender}";
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwToken);
+            string JsonConvertedUser = JsonConvert.SerializeObject(new             {
+                body = Body,
+                subject = Subject
+            });
+            StringContent stringContent = new(JsonConvertedUser, Encoding.UTF8, "application/json");
+
+            Console.WriteLine(JsonConvertedUser);
+            try
+            {
+                HttpResponseMessage response = await client.PostAsync(url, stringContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    dynamic responseBody = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show("User is notified!");
+                }
+                else
+                {
+                    MessageBox.Show("Email sending is failed!");
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
         public async Task fetchPermissions()
         {
             string url = $"{_baseUrl}AdminPermission/AllPermission";
@@ -55,6 +86,7 @@ namespace Connect2GetherWPF
             InitializeComponent();
             jwToken = token;
             _baseUrl = url;
+            Admin = new JWTtoken(token);
             LoadAndDisplayUserData();
         }
 
@@ -101,7 +133,13 @@ namespace Connect2GetherWPF
                 if (response.IsSuccessStatusCode)
                 {
                     dynamic responseBody = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show(responseBody);
+                    MessageBox.Show("User data changed successfully!");
+                    string subject = "Connect2Gether Adatváltoztatás!";
+                    string body = $"Ezúton értesítjük, hogy a fiókjában sikeresen megváltoztattuk a az adatait az alábbi adatokra:\nFelhasználónév: {Username_txtb.Text}\nEmail cím: {email_txtb.Text}";
+                    SendEmailForDataChange((cmb_users.SelectedItem as User).id,Admin.Name,body,subject);
+                    AdminHome w =  new AdminHome(jwToken,_baseUrl);
+                    w.Show();
+                    this.Close();
                     
                 }
                 else

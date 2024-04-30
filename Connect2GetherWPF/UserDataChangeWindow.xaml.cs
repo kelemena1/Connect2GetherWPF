@@ -135,7 +135,7 @@ namespace Connect2GetherWPF
                     dynamic responseBody = await response.Content.ReadAsStringAsync();
                     MessageBox.Show("User data changed successfully!");
                     string subject = "Connect2Gether Adatváltoztatás!";
-                    string body = $"Ezúton értesítjük, hogy a fiókjában sikeresen megváltoztattuk a az adatait az alábbi adatokra:\nFelhasználónév: {Username_txtb.Text}\nEmail cím: {email_txtb.Text}";
+                    string body = $"Ezúton értesítjük, hogy a fiókjában sikeresen megváltoztattuk az adatait az alábbi adatokra:\nFelhasználónév: {Username_txtb.Text}\nEmail cím: {email_txtb.Text}";
                     SendEmailForDataChange((cmb_users.SelectedItem as User).id,Admin.Name,body,subject);
                     AdminHome w =  new AdminHome(jwToken,_baseUrl);
                     w.Show();

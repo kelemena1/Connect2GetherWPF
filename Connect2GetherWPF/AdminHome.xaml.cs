@@ -315,34 +315,9 @@ namespace Connect2GetherWPF
                 {
                     if ((dg_users.SelectedItem as User).suspicious == false)
                     {
-                        MessageBoxResult result = MessageBox.Show("Are you sure you want to mark the user?", "Confirmation", MessageBoxButton.YesNo);
-
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            int id = (dg_users.SelectedItem as User).id;
-                            if (client.DefaultRequestHeaders.Authorization != null)
-                            {
-
-                                client.DefaultRequestHeaders.Remove("Authorization");
-                            }
-
-                            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {jwToken}");
-
-                            string url = $"{_baseUrl}Moderator/AddSuspicious?id={id}";
-
-
-                            HttpResponseMessage response = await client.PostAsync(url, null);
-                            await Console.Out.WriteLineAsync(response.StatusCode.ToString());
-                            if (response.IsSuccessStatusCode)
-                            {
-                                MessageBox.Show("Sucessfully marked the user as suspicious!");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed to mark the user. Please check your connection!");
-
-                            }
-                        }
+                        DescriptionForSuspicious w = new DescriptionForSuspicious(_baseUrl,jwToken, (dg_users.SelectedItem as User).id);
+                        w.Show();
+                        this.Close();
                     }
                     else {
                         MessageBox.Show("User already marked!");
@@ -430,6 +405,38 @@ namespace Connect2GetherWPF
             }
             else{
                 MessageBox.Show("Please select a user!");
+            }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (dg_Post.SelectedItem != null)
+                {
+                    if (!SusUserlist.Any(user => user.userId == (dg_Post.SelectedItem as Post).user.id))
+                    {
+                        DescriptionForSuspicious w = new DescriptionForSuspicious(_baseUrl, jwToken, (dg_Post.SelectedItem as Post).user.id);
+                        w.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("User already marked!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select the user to mark it!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadAndDisplayUserData();
             }
         }
     }

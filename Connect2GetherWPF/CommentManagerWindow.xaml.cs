@@ -30,6 +30,7 @@ namespace Connect2GetherWPF
         public static string jwToken = "";
         List<Comment> commentsList = new List<Comment>();
         public static int SelectedPostId = 0;
+        public static List<SuspiciousUser> SusUserList = new List<SuspiciousUser>();
         public CommentManagerWindow(Post post,string url,string token)
         {
             _baseUrl = url;
@@ -43,6 +44,29 @@ namespace Connect2GetherWPF
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+        public async Task fetchSusUsers()
+        {
+            string url = _baseUrl + "Moderator/AllSuspiciousUser";
+            try
+            {
+                await Console.Out.WriteLineAsync(jwToken);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwToken);
+                HttpResponseMessage response = await client.GetAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    dynamic responseBody = await response.Content.ReadAsStringAsync();
+                    await Console.Out.WriteLineAsync(responseBody);
+                    List<SuspiciousUser> users = JsonConvert.DeserializeObject<List<SuspiciousUser>>(responseBody);
+                    SusUserList = users;
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"An error occurred while fetching user data: {ex.Message}");
+            }
         }
 
         private async void DeleteComments_Click(object sender, RoutedEventArgs e)
@@ -85,38 +109,19 @@ namespace Connect2GetherWPF
             {
                 if (comments_dg.SelectedItem != null)
                 {
-                    MessageBoxResult result = MessageBox.Show("Are you sure you want to mark the user?", "Confirmation", MessageBoxButton.YesNo);
-
-                    if (result == MessageBoxResult.Yes)
+                    if (!SusUserList.Any(user => user.userId == (comments_dg.SelectedItem as Comment).userId))
                     {
-                        int id = (comments_dg.SelectedItem as Comment).userId;
-                        if (client.DefaultRequestHeaders.Authorization != null)
-                        {
-
-                            client.DefaultRequestHeaders.Remove("Authorization");
-                        }
-
-                        client.DefaultRequestHeaders.Add("Authorization", $"Bearer {jwToken}");
-
-                        string url = $"{_baseUrl}Moderator/AddSuspicious?id={id}";
-
-
-                        HttpResponseMessage response = await client.PostAsync(url, null);
-                        await Console.Out.WriteLineAsync(response.StatusCode.ToString());
-                        if (response.IsSuccessStatusCode)
-                        {
-                            MessageBox.Show("Sucessfully marked the user as suspicious!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Failed to mark the user. Please check your connection!");
-                            MessageBox.Show(response.StatusCode.ToString());
-                        }
+                        DescriptionForSuspicious w = new DescriptionForSuspicious(_baseUrl, jwToken, (comments_dg.SelectedItem as Comment).userId);
+                        w.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("User already marked!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please select the user to mark it!");
+                    MessageBox.Show("Please select the comment to mark the user!");
                 }
             }
             catch (Exception ex)

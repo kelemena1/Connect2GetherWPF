@@ -91,6 +91,7 @@ namespace Connect2GetherWPF
         //Sus User Delete permamently
         private async void Delete_sus_mark_click(object sender, RoutedEventArgs e)
         {
+
             try
             {
                 if (dg_susUsers.SelectedItem != null)
@@ -100,22 +101,15 @@ namespace Connect2GetherWPF
                     if (result == MessageBoxResult.Yes)
                     {
                         int id = (dg_susUsers.SelectedItem as SuspiciousUser).id;
-                        if (client.DefaultRequestHeaders.Authorization != null)
-                        {
-                            
-                            client.DefaultRequestHeaders.Remove("Authorization");
-                        }
-
-                        client.DefaultRequestHeaders.Add("Authorization", $"Bearer {jwToken}");
-
                         string url = $"{_baseUrl}Moderator/DeleteSuspiciousById?id={id}";
-
+                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwToken);
 
                         HttpResponseMessage response = await client.DeleteAsync(url);
                         await Console.Out.WriteLineAsync(response.StatusCode.ToString());
                         if (response.IsSuccessStatusCode)
                         {
                             MessageBox.Show("Sucessfully deleted the suspicious user!");
+                            this.Close();
                         }
                         else
                         {
@@ -132,9 +126,7 @@ namespace Connect2GetherWPF
             {
                 MessageBox.Show(ex.Message);
             }
-            finally {
-                LoadAndDisplayUserData(); 
-            }
+
         }
 
         //Remove the suspicious mark
@@ -171,12 +163,7 @@ namespace Connect2GetherWPF
                             MessageBox.Show("Failed to delete the user. Please check your connection!");
                         }
                     }
-
-
-                }
-
-
-                
+                }  
             }
             catch {
                 MessageBox.Show("Failed to delete the user. Please check your connection!");
@@ -186,7 +173,7 @@ namespace Connect2GetherWPF
 
         private void dg_susUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            description_txtb.Text = (dg_susUsers.SelectedItem as SuspiciousUser).description;
         }
 
         private void Sus_searchbar_txtb_TextChanged(object sender, TextChangedEventArgs e)
